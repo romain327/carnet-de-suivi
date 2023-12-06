@@ -11,6 +11,7 @@ from tkinter import ttk
 from tkinter import messagebox
 
 def start():
+    start_param()
     inputfile = input_text.get()
     outputpath = output_text.get()
     dict = {}
@@ -42,39 +43,27 @@ def start():
         template4 = f.read()
     f.close()
 
-    s = open("img.tex", mode='r', encoding='utf-8-sig').read()
-    open("img.tex", mode='w', encoding='utf-8').write(s)
     with open("img.tex", 'r', encoding="utf-8") as f:
         img = f.read()
     f.close()
 
-    s = open("nom.tex", mode='r', encoding='utf-8-sig').read()
-    open("nom.tex", mode='w', encoding='utf-8').write(s)
     with open("nom.tex", 'r', encoding="utf-8") as f:
         name = f.read()
     f.close()
 
-    s = open("tuteur.tex", mode='r', encoding='utf-8-sig').read()
-    open("tuteur.tex", mode='w', encoding='utf-8').write(s)
     with open("tuteur.tex", 'r', encoding="utf-8") as f:
         tuteur = f.read()
     f.close()
 
-    s = open("ma.tex", mode='r', encoding='utf-8-sig').read()
-    open("ma.tex", mode='w', encoding='utf-8').write(s)
     with open("ma.tex", 'r', encoding="utf-8") as f:
         ma = f.read()
     f.close()
 
-    s = open("annexes.tex", mode='r', encoding='utf-8-sig').read()
-    open("annexes.tex", mode='w', encoding='utf-8').write(s)
     with open("annexes.tex", 'r', encoding="utf-8") as f:
         annexes = f.read()
     f.close()
 
     print("done")
-
-    start_param()
 
     print("reading "+ inputfile)
     s = open(inputfile, mode='r', encoding='utf-8-sig').read()
