@@ -1,9 +1,10 @@
 import os
 
+print("installation des librairies...")
+os.system("sudo apt install texlive")
 os.system("sudo apt install python3-pip")
 os.system("sudo apt install python3-tk")
 os.system("python3 -m pip install --upgrade pip")
-os.system("python3 -m pip install sys")
 os.system("python3 -m pip install pathlib")
 
 import tkinter as tk
@@ -14,6 +15,7 @@ from tkinter import ttk
 from tkinter import messagebox
 
 def start():
+    start_param()
     inputfile = input_text.get()
     outputpath = output_text.get()
     dict = {}

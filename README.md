@@ -1,4 +1,7 @@
 # carnet-de-suivi
+
+Statut : en cours de developpement
+
 Ce projet est un générateur de carnet de suivi.
 La fenêtre se compose en 2 parties :
 - la partie import/export, où il vous suffit d'importer votre carnet de suivi sous format csv, et de choisir le repertoire d'enregistrement
