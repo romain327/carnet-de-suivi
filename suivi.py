@@ -18,6 +18,8 @@ def start():
     w = ""
     Line = []
 
+    format_csv(inputfile)
+    
     print("creating the model...")
     s = open("template1.tex", mode='r', encoding='utf-8-sig').read()
     open("template1.tex", mode='w', encoding='utf-8').write(s)
@@ -131,6 +133,9 @@ def start():
     os.system("pdflatex suivi.tex")
     os.system("move suivi.pdf " + outputpath)
     print("done")
+
+def format_csv():
+    with open
 
 def start_param():
     print("writing parameters...")
