@@ -174,10 +174,10 @@ def write_name():
         return False
 
     name = name_text.get()
-    first = name.split(" ")[0]
-    last = "\\textsc{" + name.split(" ")[1] + "}\\\\"
+    first = name.split(" ")[1] + "\\\\"
+    last = "\\textsc{" + name.split(" ")[0] + "}"
     with open("nom.tex", 'w', encoding="utf-8") as f:
-        f.write(first + " " + last)
+        f.write(last + " " + first)
     f.close()
     return True
 
@@ -192,7 +192,7 @@ def write_tut_ac():
     else:
         tut = "Tuteur"
     t = tut_ac_text.get()
-    text = "\emph{" + tut + " académique:}\\\\ " + civ + " " + t.split()[0] + " \\textsc{" + t.split()[1] + "}\\\\"
+    text = "\emph{" + tut + " académique:}\\\\ " + civ + " \\textsc{" + t.split(" ")[0] + "} " + t.split(" ")[1] + "\\\\"
     with open("tuteur.tex", 'w', encoding="utf-8") as f:
         f.write(text)
     f.close()
@@ -204,7 +204,7 @@ def write_ma():
 
     civ = civilite2.get()
     m = ma_text.get()
-    text = "\emph{Maître d'apprentissage:}\\\\ " + civ + " " + m.split()[0] + " \\textsc{" + m.split()[1] + "}\\\\"
+    text = "\emph{Maître d'apprentissage:}\\\\ " + civ + " \\textsc{" + m.split(" ")[0] + "} " + m.split(" ")[1] + "\\\\"
     with open("ma.tex", 'w', encoding="utf-8") as f:
         f.write(text)
     f.close()
