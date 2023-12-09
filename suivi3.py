@@ -4,8 +4,8 @@ print("installation des librairies...")
 os.system("sudo apt install texlive")
 os.system("sudo apt install python3-pip")
 os.system("sudo apt install python3-tk")
-os.system("python3 -m pip install --upgrade pip")
-os.system("python3 -m pip install pathlib")
+os.system("python3 -m pip install --upgrade --break-system-packages pip")
+os.system("python3 -m pip install --break-system-packages pathlib")
 
 import tkinter as tk
 from tkinter import filedialog as fd
