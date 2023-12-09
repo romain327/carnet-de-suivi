@@ -22,6 +22,10 @@ def start():
     w = ""
     Line = []
 
+    print("formatting csv...")
+    inputfile = format_csv(inputfile)
+    print("done")
+
     print("creating the model...")
     s = open("template1.tex", mode='r', encoding='utf-8-sig').read()
     open("template1.tex", mode='w', encoding='utf-8').write(s)
@@ -147,6 +151,27 @@ def start():
     os.system("pdflatex suivi.tex")
     os.system("mv suivi.pdf " + outputpath)
     print("done")
+
+def format_csv(file):
+    l = ""
+    w = open("format.csv", 'w', encoding="utf-8")
+
+    s = open(file, mode='r', encoding='utf-8-sig').read()
+    open(file, mode='w', encoding='utf-8').write(s)
+    with open (file, 'r', encoding="utf-8") as f:
+        for line in f:
+            if 48 <= ord(line[0]) <= 57:
+                l = line
+            else :
+                l += line
+                for c in range(len(line)):
+                    if l[c] == "," and line[c+1] != " ":
+                        l[c] = ";"
+
+            w.write(line)
+            l = ""
+    f.close()
+    return "format.csv"
 
 def start_param():
     print("writing parameters...")
