@@ -334,10 +334,16 @@ def write_intro():
     text = w.read()
     w.close()
 
-    f = open("template4.tex", mode='a', encoding='utf-8')
+    f = open("template4.tex", mode='w', encoding='utf-8')
+    f.write("\end{center}")
+    f.write("\end{titlepage}")
+    f.write("\setcounter{tocdepth}{1}")
+    f.write("\\tableofcontents" + "\n")
+    f.write("\chapter{Introduction}" + "\n")
     f.write(text)
     f.close()
     return True
+
 
 def select_conclusion():
     filetypes = (('Texte', '*.txt'), ('All files', '*.*'))
