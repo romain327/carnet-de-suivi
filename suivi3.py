@@ -20,6 +20,7 @@ def start():
     outputpath = output_text.get()
     dict = {}
     w = ""
+    text = ""
     Line = []
 
     print("formatting csv...")
@@ -102,6 +103,8 @@ def start():
             Line = []
     f.close()
 
+    os.system("rm " + inputfile)
+
     with open("suivi.tex", 'w', encoding="utf-8") as f:
         f.write(template1)
         f.write("\n")
@@ -138,9 +141,13 @@ def start():
             f.write("\n")
     f.close()
 
+    text = open("conclusion.txt", mode='r', encoding='utf-8').read()
+
     s = open("suivi.tex", mode='r', encoding='utf-8-sig').read()
     open("suivi.tex", mode='w', encoding='utf-8').write(s)
     with open("suivi.tex", 'a', encoding="utf-8") as f:
+        f.write("\chapter{Conclusion}\n")
+        f.write(text)
         f.write("\chapter{Annexes}\n")
         f.write(annexes)
         f.write("\end{document}")
@@ -150,6 +157,7 @@ def start():
     os.system("pdflatex suivi.tex")
     os.system("pdflatex suivi.tex")
     os.system("mv suivi.pdf " + outputpath)
+    os.system("rm suivi.aux suivi.log suivi.tex suivi.toc format.csv")
     print("done")
 
 def format_csv(file):
@@ -180,6 +188,7 @@ def format_csv(file):
             l = l.replace(", ", "|")
             l = l.replace(",", ";")
             l = l.replace("|", ", ")
+            l = l.replace("&", "et")
             w.write(l + "\n")
             l = ""
     w.close()
@@ -192,6 +201,8 @@ def start_param():
     write_tut_ac()
     write_ma()
     write_annexes()
+    write_intro()
+    write_conclusion()
     print("done")
 
 def select_input():
@@ -281,6 +292,45 @@ def write_annexes():
     f.close()
     return True
 
+def select_intro():
+    filetypes = (('Texte', '*.txt'), ('All files', '*.*'))
+    intro = fd.askopenfilename(title='Open a file', initialdir=Path(sys.executable).parent, filetypes=filetypes)
+    intro_text.set(intro)
+
+def write_intro():
+    if(intro_text.get() == ""):
+        return False
+
+    intro_path = intro_text.get()
+    w = open(intro_path, 'r', encoding="utf-8")
+    text = w.read()
+    w.close()
+
+    f = open("template4.tex", mode='a', encoding='utf-8')
+    f.write(text)
+    f.write("\chapter{Suivi}")
+    f.close()
+    return True
+
+def select_conclusion():
+    filetypes = (('Texte', '*.txt'), ('All files', '*.*'))
+    conclusion = fd.askopenfilename(title='Open a file', initialdir=Path(sys.executable).parent, filetypes=filetypes)
+    conclusion_text.set(conclusion)
+
+def write_conclusion():
+    if(conclusion_text.get() == ""):
+        return False
+
+    conclusion_path = conclusion_text.get()
+    w = open(conclusion_path, 'r', encoding="utf-8")
+    text = w.read()
+    w.close()
+
+    f = open("conclusion.txt", mode='w', encoding='utf-8')
+    f.write(text)
+    f.close()
+    return True
+
 root = tk.Tk()
 root.geometry("800x600")
 
@@ -341,6 +391,20 @@ ma_text = tk.StringVar()
 ma_textfield = tk.Entry(root, width=50, textvariable=ma_text)
 #ma_textfield.pack()
 
+#intro
+intro_label = ttk.Label(root, text="Introduction")
+intro_text = tk.StringVar()
+intro_textfield = tk.Entry(root, width=50, textvariable=intro_text)
+intro_button = ttk.Button(root, text="Introduction", command=select_intro)
+#intro_textfield.pack()
+
+#conclusion
+conclusion_label = ttk.Label(root, text="Conclusion")
+conclusion_text = tk.StringVar()
+conclusion_textfield = tk.Entry(root, width=50, textvariable=conclusion_text)
+conclusion_button = ttk.Button(root, text="Conclusion", command=select_conclusion)
+#conclusion_textfield.pack()
+
 #annexes
 annexes_label = ttk.Label(root, text="Dossier des annexes")
 annexes_text = tk.StringVar()
@@ -373,8 +437,14 @@ tut_ac_textfield.grid(row=7, column=2, pady=5)
 ma_label.grid(row=8, column=0, pady=5)
 w2.grid(row=8, column=1, pady=5)
 ma_textfield.grid(row=8, column=2, pady=5)
-annexes_label.grid(row=9, column=0, pady=5)
-annexes_button.grid(row=9, column=1, pady=5)
-annexes_textfield.grid(row=9, column=2, pady=5)
-close_button.grid(row=10, column=1, columnspan=2, pady=10)
+intro_label.grid(row=9, column=0, pady=5)
+intro_button.grid(row=9, column=1, pady=5)
+intro_textfield.grid(row=9, column=2, pady=5)
+conclusion_label.grid(row=10, column=0, pady=5)
+conclusion_button.grid(row=10, column=1, pady=5)
+conclusion_textfield.grid(row=10, column=2, pady=5)
+annexes_label.grid(row=11, column=0, pady=5)
+annexes_button.grid(row=11, column=1, pady=5)
+annexes_textfield.grid(row=11, column=2, pady=5)
+close_button.grid(row=12, column=1, columnspan=2, pady=10)
 root.mainloop()

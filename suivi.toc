@@ -1,3 +1,0 @@
-\babel@toc {nil}{}\relax 
-\contentsline {chapter}{\numberline {1}Présentation}{2}{}%
-\contentsline {chapter}{\numberline {2}Annexes}{5}{}%

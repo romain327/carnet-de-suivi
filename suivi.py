@@ -86,6 +86,8 @@ def start():
             Line = []
     f.close()
 
+    #os.system("del " + inputfile)
+
     with open("suivi.tex", 'w', encoding="utf-8") as f:
         f.write(template1)
         f.write("\n")
@@ -122,9 +124,13 @@ def start():
             f.write("\n")
     f.close()
 
+    text = open("conclusion.txt", mode='r', encoding='utf-8').read()
+
     s = open("suivi.tex", mode='r', encoding='utf-8-sig').read()
     open("suivi.tex", mode='w', encoding='utf-8').write(s)
     with open("suivi.tex", 'a', encoding="utf-8") as f:
+        f.write("\chapter{Conclusion}\n")
+        f.write(text)
         f.write("\chapter{Annexes}\n")
         f.write(annexes)
         f.write("\end{document}")
@@ -134,6 +140,7 @@ def start():
     os.system("pdflatex suivi.tex")
     os.system("pdflatex suivi.tex")
     os.system("move suivi.pdf " + outputpath)
+    os.system("del suivi.aux suivi.log suivi.toc suivi.tex format.csv")
     print("done")
 
 def format_csv(file):
@@ -164,6 +171,8 @@ def format_csv(file):
             l = l.replace(", ", "|")
             l = l.replace(",", ";")
             l = l.replace("|", ", ")
+            l = l.replace("&", "et")
+            l = l.replace('"', '')
             w.write(l + "\n")
             l = ""
     w.close()
@@ -177,6 +186,8 @@ def start_param():
     write_tut_ac()
     write_ma()
     write_annexes()
+    write_intro()
+    write_conclusion()
     print("done")
 
 def select_input():
@@ -216,6 +227,7 @@ def write_name():
     last = "\\textsc{" + name.split(" ")[0] + "}"
     with open("nom.tex", 'w', encoding="utf-8") as f:
         f.write(last + " " + first)
+        f.write("promotion 2023-2026")
     f.close()
     return True
 
@@ -266,78 +278,132 @@ def write_annexes():
     f.close()
     return True
 
+def select_intro():
+    filetypes = (('Texte', '*.txt'), ('All files', '*.*'))
+    intro = fd.askopenfilename(title='Open a file', initialdir=Path(sys.executable).parent, filetypes=filetypes)
+    intro_text.set(intro)
+
+def write_intro():
+    if (intro_text.get() == ""):
+        return False
+
+    intro_path = intro_text.get()
+    w = open(intro_path, 'r', encoding="utf-8")
+    text = w.read()
+    w.close()
+
+    f = open("template4.tex", mode='a', encoding='utf-8')
+    f.write(text)
+    f.write("\chapter{Suivi}")
+    f.close()
+    return True
+
+def select_conclusion():
+    filetypes = (('Texte', '*.txt'), ('All files', '*.*'))
+    conclusion = fd.askopenfilename(title='Open a file', initialdir=Path(sys.executable).parent, filetypes=filetypes)
+    conclusion_text.set(conclusion)
+
+
+def write_conclusion():
+    if (conclusion_text.get() == ""):
+        return False
+
+    conclusion_path = conclusion_text.get()
+    w = open(conclusion_path, 'r', encoding="utf-8")
+    text = w.read()
+    w.close()
+
+    f = open("conclusion.txt", mode='w', encoding='utf-8')
+    f.write(text)
+    f.close()
+    return True
+
 root = tk.Tk()
 root.geometry("800x600")
 
 title_label = ttk.Label(root, text="Générateur de carnet de suivi")
 
-#csv entrée
+# csv entrée
 input_label = ttk.Label(root, text="Fichier CSV")
 input_text = tk.StringVar()
 input_textfield = tk.Entry(root, width=50, textvariable=input_text)
-#input_textfield.pack()
+# input_textfield.pack()
 input_button = ttk.Button(root, text="Import du fichier CSV", command=select_input)
-#input_button.pack(expand=True)
+# input_button.pack(expand=True)
 
-#dossier sortie
+# dossier sortie
 output_label = ttk.Label(root, text="Dossier de sortie")
 output_text = tk.StringVar()
 output_textfield = tk.Entry(root, width=50, textvariable=output_text)
-#output_textfield.pack()
+# output_textfield.pack()
 output_button = ttk.Button(root, text="Export du fichier PDF", command=select_output)
-#output_button.pack(expand=True)
+# output_button.pack(expand=True)
 
 start_button = ttk.Button(root, text="Lancer", command=start)
-#start_button.pack(expand=True)
+# start_button.pack(expand=True)
 
-param_label= ttk.Label(root, text="Paramètres")
+param_label = ttk.Label(root, text="Paramètres")
 
-#image
+# image
 img_label = ttk.Label(root, text="Logo entreprise")
 img_text = tk.StringVar()
 img_textfield = tk.Entry(root, width=50, textvariable=img_text)
-#img_textfield.pack()
+# img_textfield.pack()
 img_button = ttk.Button(root, text="Import du logo", command=select_img)
-#img_button.pack(expand=True)
+# img_button.pack(expand=True)
 
-#nom - prénom élève
+# nom - prénom élève
 name_label = ttk.Label(root, text="Nom et prénom de l'étudiant")
 name_text = tk.StringVar()
 name_textfield = tk.Entry(root, width=50, textvariable=name_text)
-#name_textfield.pack()
+# name_textfield.pack()
 
-#tuteur académique
+# tuteur académique
 tut_ac_label = ttk.Label(root, text="Nom et prénom du tuteur académique")
 civilite = tk.StringVar(root)
 civilite.set("Mme.")
 w = tk.OptionMenu(root, civilite, "Mme.", "Mlle.", "M.")
-#w.pack()
+# w.pack()
 tut_ac_text = tk.StringVar()
 tut_ac_textfield = tk.Entry(root, width=50, textvariable=tut_ac_text)
-#tut_ac_textfield.pack()
+# tut_ac_textfield.pack()
 
-#maître d'apprentissage
+# maître d'apprentissage
 ma_label = ttk.Label(root, text="Nom et prénom du maître d'apprentissage")
 civilite2 = tk.StringVar(root)
 civilite2.set("Mme.")
 w2 = tk.OptionMenu(root, civilite2, "Mme.", "Mlle.", "M.")
-#w2.pack()
+# w2.pack()
 ma_text = tk.StringVar()
 ma_textfield = tk.Entry(root, width=50, textvariable=ma_text)
-#ma_textfield.pack()
+# ma_textfield.pack()
 
-#annexes
+# intro
+intro_label = ttk.Label(root, text="Introduction")
+intro_text = tk.StringVar()
+intro_textfield = tk.Entry(root, width=50, textvariable=intro_text)
+intro_button = ttk.Button(root, text="Introduction", command=select_intro)
+# intro_textfield.pack()
+
+# conclusion
+conclusion_label = ttk.Label(root, text="Conclusion")
+conclusion_text = tk.StringVar()
+conclusion_textfield = tk.Entry(root, width=50, textvariable=conclusion_text)
+conclusion_button = ttk.Button(root, text="Conclusion", command=select_conclusion)
+# conclusion_textfield.pack()
+
+# annexes
 annexes_label = ttk.Label(root, text="Dossier des annexes")
 annexes_text = tk.StringVar()
 annexes_textfield = tk.Entry(root, width=50, textvariable=annexes_text)
-#annexes_textfield.pack()
+# annexes_textfield.pack()
 annexes_button = ttk.Button(root, text="Annexes", command=select_annexes)
-#annexes_button.pack(expand=True)
+# annexes_button.pack(expand=True)
 
 close_button = ttk.Button(root, text="Fermer", command=root.destroy)
-#close_button.pack(expand=True)
+# close_button.pack(expand=True)
 
-#positions
+# positions
 title_label.grid(row=0, column=0, columnspan=2, pady=10)
 input_label.grid(row=1, column=0, pady=5)
 input_button.grid(row=1, column=1, pady=5)
@@ -358,8 +424,14 @@ tut_ac_textfield.grid(row=7, column=2, pady=5)
 ma_label.grid(row=8, column=0, pady=5)
 w2.grid(row=8, column=1, pady=5)
 ma_textfield.grid(row=8, column=2, pady=5)
-annexes_label.grid(row=9, column=0, pady=5)
-annexes_button.grid(row=9, column=1, pady=5)
-annexes_textfield.grid(row=9, column=2, pady=5)
-close_button.grid(row=10, column=1, columnspan=2, pady=10)
+intro_label.grid(row=9, column=0, pady=5)
+intro_button.grid(row=9, column=1, pady=5)
+intro_textfield.grid(row=9, column=2, pady=5)
+conclusion_label.grid(row=10, column=0, pady=5)
+conclusion_button.grid(row=10, column=1, pady=5)
+conclusion_textfield.grid(row=10, column=2, pady=5)
+annexes_label.grid(row=11, column=0, pady=5)
+annexes_button.grid(row=11, column=1, pady=5)
+annexes_textfield.grid(row=11, column=2, pady=5)
+close_button.grid(row=12, column=1, columnspan=2, pady=10)
 root.mainloop()
