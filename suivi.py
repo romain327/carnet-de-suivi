@@ -13,8 +13,10 @@ from tkinter import messagebox
 def start():
     start_param()
     inputfile = input_text.get()
+    entreprisefile = entreprise_text.get()
     outputpath = output_text.get()
     dict = {}
+    dict2 = {}
     w = ""
     Line = []
 
@@ -86,7 +88,25 @@ def start():
             Line = []
     f.close()
 
-    #os.system("del " + inputfile)
+    w = ""
+
+    s = open(entreprisefile, mode='r', encoding='utf-8-sig').read()
+    open(entreprisefile, mode='w', encoding='utf-8').write(s)
+    with open(entreprisefile, 'r', encoding="utf-8") as f:
+        for line in f:
+            for char in line:
+                if char ==';' or char == '\n':
+                    Line.append(w)
+                    w = ""
+                else :
+                    w += char
+            if Line[0] not in dict2:
+                dict2[Line[0]] = []
+            dict2[Line[0]].append(Line[1:])
+            Line = []
+    f.close()
+    print("done")
+    print(dict2)
 
     with open("suivi.tex", 'w', encoding="utf-8") as f:
         f.write(template1)
@@ -111,6 +131,7 @@ def start():
     s = open("suivi.tex", mode='r', encoding='utf-8-sig').read()
     open("suivi.tex", mode='w', encoding='utf-8').write(s)
     with open ("suivi.tex", 'a', encoding="utf-8") as f:
+        f.write("\chapter{Suivi académique}\n")
         for key in dict.keys():
             f.write("\section*{Semaine " + key + "}\n")
             f.write("\\" + "begin{tabular}{|l|l|l|l|}\n")
@@ -123,6 +144,24 @@ def start():
             f.write("\end{tabular}\n")
             f.write("\n")
     f.close()
+
+    s = open("suivi.tex", mode='r', encoding='utf-8-sig').read()
+    open("suivi.tex", mode='w', encoding='utf-8').write(s)
+    with open ("suivi.tex", 'a', encoding="utf-8") as f:
+        f.write("\chapter{Suivi en entreprise}\n")
+        for key in dict2.keys():
+            f.write("\section*{Semaine " + key + "}\n")
+            f.write("\\" + "begin{tabular}{|l|l|l|l|}\n")
+            f.write("\hline\n")
+            f.write("Activité & Description & Evaluation & Commentaire \\\\ \n")
+            f.write("\hline\n")
+            for cat in dict2[key]:
+                f.write(cat[0] + " & " + cat[1] + " & " + cat[2] + " & " + cat[3] + " \\\\ \n")
+                f.write("\hline\n")
+            f.write("\end{tabular}\n")
+            f.write("\n")
+    f.close()
+    print("done")
 
     text = open("conclusion.txt", mode='r', encoding='utf-8').read()
 
@@ -154,8 +193,6 @@ def format_csv(file):
             l = line
             line_list.append(l)
     f.close()
-
-    print(line_list)
 
     w = open("format.csv", 'w', encoding="utf-8")
     for i in range(1, len(line_list)):
@@ -194,6 +231,11 @@ def select_input():
     filetypes = (('Csv files', '*.csv'), ('All files', '*.*'))
     filename = fd.askopenfilename(title='Open a file', initialdir=Path(sys.executable).parent, filetypes=filetypes)
     input_text.set(filename)
+
+def select_entreprise():
+    filetypes = (('Csv files', '*.csv'), ('All files', '*.*'))
+    filename = fd.askopenfilename(title='Open a file', initialdir=Path(sys.executable).parent, filetypes=filetypes)
+    entreprise_text.set(filename)
 
 def select_output():
     directory = fd.askdirectory()
@@ -294,7 +336,6 @@ def write_intro():
 
     f = open("template4.tex", mode='a', encoding='utf-8')
     f.write(text)
-    f.write("\chapter{Suivi}")
     f.close()
     return True
 
@@ -324,12 +365,20 @@ root.geometry("800x600")
 title_label = ttk.Label(root, text="Générateur de carnet de suivi")
 
 # csv entrée
-input_label = ttk.Label(root, text="Fichier CSV")
+input_label = ttk.Label(root, text="Fichier CSV académique")
 input_text = tk.StringVar()
 input_textfield = tk.Entry(root, width=50, textvariable=input_text)
 # input_textfield.pack()
 input_button = ttk.Button(root, text="Import du fichier CSV", command=select_input)
 # input_button.pack(expand=True)
+
+#csv entrprise
+entreprise_label = ttk.Label(root, text="Fichier CSV entreprise")
+entreprise_text = tk.StringVar()
+entreprise_textfield = tk.Entry(root, width=50, textvariable=entreprise_text)
+# entreprise_textfield.pack()
+entreprise_button = ttk.Button(root, text="Import du fichier CSV", command=select_entreprise)
+# entreprise_button.pack(expand=True)
 
 # dossier sortie
 output_label = ttk.Label(root, text="Dossier de sortie")
@@ -408,30 +457,33 @@ title_label.grid(row=0, column=0, columnspan=2, pady=10)
 input_label.grid(row=1, column=0, pady=5)
 input_button.grid(row=1, column=1, pady=5)
 input_textfield.grid(row=1, column=2, pady=5)
-output_label.grid(row=2, column=0, pady=5)
-output_button.grid(row=2, column=1, pady=5)
-output_textfield.grid(row=2, column=2, pady=5)
-start_button.grid(row=3, column=1, columnspan=2, pady=10)
-param_label.grid(row=4, column=0, columnspan=2, pady=10)
-img_label.grid(row=5, column=0, pady=5)
-img_button.grid(row=5, column=1, pady=5)
-img_textfield.grid(row=5, column=2, pady=5)
-name_label.grid(row=6, column=0, pady=5)
-name_textfield.grid(row=6, column=2, pady=5)
-tut_ac_label.grid(row=7, column=0, pady=5)
-w.grid(row=7, column=1, pady=5)
-tut_ac_textfield.grid(row=7, column=2, pady=5)
-ma_label.grid(row=8, column=0, pady=5)
-w2.grid(row=8, column=1, pady=5)
-ma_textfield.grid(row=8, column=2, pady=5)
-intro_label.grid(row=9, column=0, pady=5)
-intro_button.grid(row=9, column=1, pady=5)
-intro_textfield.grid(row=9, column=2, pady=5)
-conclusion_label.grid(row=10, column=0, pady=5)
-conclusion_button.grid(row=10, column=1, pady=5)
-conclusion_textfield.grid(row=10, column=2, pady=5)
-annexes_label.grid(row=11, column=0, pady=5)
-annexes_button.grid(row=11, column=1, pady=5)
-annexes_textfield.grid(row=11, column=2, pady=5)
-close_button.grid(row=12, column=1, columnspan=2, pady=10)
+entreprise_label.grid(row=2, column=0, pady=5)
+entreprise_button.grid(row=2, column=1, pady=5)
+entreprise_textfield.grid(row=2, column=2, pady=5)
+output_label.grid(row=3, column=0, pady=5)
+output_button.grid(row=3, column=1, pady=5)
+output_textfield.grid(row=3, column=2, pady=5)
+start_button.grid(row=4, column=0, pady=10)
+param_label.grid(row=5, column=0, columnspan=2, pady=10)
+img_label.grid(row=6, column=0, pady=5)
+img_button.grid(row=6, column=1, pady=5)
+img_textfield.grid(row=6, column=2, pady=5)
+name_label.grid(row=7, column=0, pady=5)
+name_textfield.grid(row=7, column=2, pady=5)
+tut_ac_label.grid(row=8, column=0, pady=5)
+w.grid(row=8, column=1, pady=5)
+tut_ac_textfield.grid(row=8, column=2, pady=5)
+ma_label.grid(row=9, column=0, pady=5)
+w2.grid(row=9, column=1, pady=5)
+ma_textfield.grid(row=9, column=2, pady=5)
+intro_label.grid(row=10, column=0, pady=5)
+intro_button.grid(row=10, column=1, pady=5)
+intro_textfield.grid(row=10, column=2, pady=5)
+conclusion_label.grid(row=11, column=0, pady=5)
+conclusion_button.grid(row=11, column=1, pady=5)
+conclusion_textfield.grid(row=11, column=2, pady=5)
+annexes_label.grid(row=12, column=0, pady=5)
+annexes_button.grid(row=12, column=1, pady=5)
+annexes_textfield.grid(row=12, column=2, pady=5)
+close_button.grid(row=13, column=0, pady=10)
 root.mainloop()
