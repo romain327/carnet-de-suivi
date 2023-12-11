@@ -167,21 +167,28 @@ def format_csv(file):
     print(line_list)
 
     w = open("format.csv", 'w', encoding="utf-8")
+
+    d = open("debug.txt", 'w', encoding="utf-8")
+
     for i in range(1, len(line_list)):
         if 48 <= ord(line_list[i][0]) <= 57:
             l = line_list[i]
-            print(l)
+            l = l[:-1]
+            l.replace('\n', "")
+            d.write(str(ord(line_list[i][0])) + " " + l)
             j = 1
-            if i+1 <len(line_list):
-                while 48 > ord(line_list[i+j][0]) and ord(line_list[i+j][0]) > 57:
-                    l += line_list[i+j]
+            if i+j < len(line_list):
+                while ord(line_list[i+j][0]) < 48 or 57 < ord(line_list[i+j][0]):
+                    lint = line_list[i+j][:-1]
+                    d.write("lint : " + lint)
+                    l += str(lint)
+                    d.write("l : " + l)
                     j += 1
-            
+
             l.replace(", ", "|")
             l.replace(",", ";")
             l.replace("|", ",")
-            print(l)
-            w.write(l)
+            w.write(l + "\n")
             l = ""
     w.close()
     return "format.csv"
