@@ -138,24 +138,37 @@ def start():
 
 def format_csv(file):
     l = ""
-    w = open("format.csv", 'w', encoding="utf-8")
+    line_list = []
 
     s = open(file, mode='r', encoding='utf-8-sig').read()
     open(file, mode='w', encoding='utf-8').write(s)
     with open (file, 'r', encoding="utf-8") as f:
         for line in f:
-            if 48 <= ord(line[0]) <= 57:
-                l = line
-            else :
-                l += line
-                for c in range(len(line)):
-                    if l[c] == "," and line[c+1] != " ":
-                        l[c] = ";"
-
-            w.write(line)
-            l = ""
+            l = line
+            line_list.append(l)
     f.close()
+
+    print(line_list)
+
+    w = open("format.csv", 'w', encoding="utf-8")
+    for i in range(1, len(line_list)):
+        if 48 <= ord(line_list[i][0]) <= 57:
+            l = line_list[i][:-1]
+            j = 1
+            if i+j < len(line_list):
+                while ord(line_list[i+j][0]) < 48 or 57 < ord(line_list[i+j][0]):
+                    lint = line_list[i+j][:-1]
+                    l += str(lint)
+                    j += 1
+
+            l = l.replace(", ", "|")
+            l = l.replace(",", ";")
+            l = l.replace("|", ", ")
+            w.write(l + "\n")
+            l = ""
+    w.close()
     return "format.csv"
+
 
 def start_param():
     print("writing parameters...")

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.12.8)  9 DEC 2023 21:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.12.8)  11 DEC 2023 14:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -106,22 +106,23 @@ File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 \Gin@req@height=\dimen150
 \Gin@req@width=\dimen151
 )
-
-! LaTeX Error: File `enumitem.sty' not found.
-
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: sty)
-
-Enter file name: 
-(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+(./enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip50
+\enit@outerparindent=\dimen152
+\enit@toks=\toks20
+\enit@inbox=\box51
+\enit@count@id=\count199
+\enitdp@description=\count266
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen152
-\ar@mcellbox=\box51
-\extrarowheight=\dimen153
-\NC@list=\toks20
-\extratabsurround=\skip50
-\backup@length=\skip51
-\ar@cellbox=\box52
+\col@sep=\dimen153
+\ar@mcellbox=\box52
+\extrarowheight=\dimen154
+\NC@list=\toks21
+\extratabsurround=\skip51
+\backup@length=\skip52
+\ar@cellbox=\box53
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2022/12/19 v0.5x Insert pages of external PDF documents (AM)
@@ -131,21 +132,21 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count199
-\calc@Bcount=\count266
-\calc@Adimen=\dimen154
-\calc@Bdimen=\dimen155
-\calc@Askip=\skip52
-\calc@Bskip=\skip53
+\calc@Acount=\count267
+\calc@Bcount=\count268
+\calc@Adimen=\dimen155
+\calc@Bdimen=\dimen156
+\calc@Askip=\skip53
+\calc@Bskip=\skip54
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count267
-\calc@Cskip=\skip54
+\calc@Ccount=\count269
+\calc@Cskip=\skip55
 )
 (/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
-\ESO@tempdima=\dimen156
-\ESO@tempdimb=\dimen157
+\ESO@tempdima=\dimen157
+\ESO@tempdimb=\dimen158
 
 (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
@@ -166,26 +167,26 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
 ))
-\AM@pagewidth=\dimen158
-\AM@pageheight=\dimen159
-\AM@fboxrule=\dimen160
+\AM@pagewidth=\dimen159
+\AM@pageheight=\dimen160
+\AM@fboxrule=\dimen161
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2022/12/19 v0.5x Pdfpages driver for pdfTeX (AM)
 )
-\pdfpages@includegraphics@status=\count268
-\AM@pagebox=\box53
-\AM@global@opts=\toks21
-\AM@pagecnt=\count269
-\AM@toc@title=\toks22
-\AM@lof@heading=\toks23
-\c@AM@survey=\count270
-\AM@templatesizebox=\box54
+\pdfpages@includegraphics@status=\count270
+\AM@pagebox=\box54
+\AM@global@opts=\toks22
+\AM@pagecnt=\count271
+\AM@toc@title=\toks23
+\AM@lof@heading=\toks24
+\c@AM@survey=\count272
+\AM@templatesizebox=\box55
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count271
-\l__pdf_internal_box=\box55
+\l__color_backend_stack_int=\count273
+\l__pdf_internal_box=\box56
 )
 (./suivi.aux)
 \openout1 = `suivi.aux'.
@@ -241,17 +242,17 @@ LaTeX Font Info:    ... okay on input line 17.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count272
-\scratchdimen=\dimen161
-\scratchbox=\box56
-\nofMPsegments=\count273
-\nofMParguments=\count274
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count275
-\MPscratchDim=\dimen162
-\MPnumerator=\count276
-\makeMPintoPDFobject=\count277
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count274
+\scratchdimen=\dimen162
+\scratchbox=\box57
+\nofMPsegments=\count275
+\nofMParguments=\count276
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count277
+\MPscratchDim=\dimen163
+\MPnumerator=\count278
+\makeMPintoPDFobject=\count279
+\everyMPtoPDFconversion=\toks26
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -293,192 +294,599 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 l.44             {\large 1\ier
                               {} Septembre 2023 — 31 Août 2023}
 ? 
-</home/romain/Bureau/Suivi/carnet-de-suivi/img/eiffage.png, id=2, 361.35pt x 14
-0.525pt>
-File: /home/romain/Bureau/Suivi/carnet-de-suivi/img/eiffage.png Graphic file (t
-ype png)
-<use /home/romain/Bureau/Suivi/carnet-de-suivi/img/eiffage.png>
-Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/img/eiffage.
-png  used on input line 46.
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/eiffage.png, id=2, 361.35pt x 1
+40.525pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/eiffage.png Graphic file (
+type png)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/eiffage.png>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/eiffage
+.png  used on input line 46.
 (pdftex.def)             Requested size: 483.69687pt x 188.10522pt.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/polytech.png> </home
-/romain/Bureau/Suivi/carnet-de-suivi/img/eiffage.png>] (./suivi.toc)
+/romain/Bureau/Suivi/carnet-de-suivi/test/eiffage.png>] (./suivi.toc)
 \tf@toc=\write3
 \openout3 = `suivi.toc'.
 
- [1
+
+[1
 
 ]
 Chapter 1.
 
-Overfull \hbox (509.067pt too wide) in paragraph at lines 57--78
+Overfull \hbox (808.43958pt too wide) in paragraph at lines 57--78
+[] 
+ []
+
+
+Overfull \hbox (469.17815pt too wide) in paragraph at lines 80--97
+[] 
+ []
+
+
+Overfull \hbox (616.76556pt too wide) in paragraph at lines 99--116
+[] 
+ []
+
+
+Overfull \hbox (778.0581pt too wide) in paragraph at lines 118--135
 [] 
  []
 
 [2
 
 ]
+! Extra alignment tab has been changed to \cr.
+<recently read> \endtemplate 
+                             
+l.153 ...s économiques (PIB))" & O (Sans Objet) &
+                                                   A VOUS DE LE REMPLIR - NE...
+
+? 
+
+Overfull \hbox (942.72754pt too wide) in paragraph at lines 137--156
+[] 
+ []
+
+
+Overfull \hbox (643.39252pt too wide) in paragraph at lines 158--193
+[] 
+ []
+
+
+Overfull \hbox (577.05174pt too wide) in paragraph at lines 195--216
+[] 
+ []
+
+[3]
+Overfull \hbox (747.70306pt too wide) in paragraph at lines 218--245
+[] 
+ []
+
+[4]
 Chapter 2.
 
-! Package pdfpages Error: Cannot find file `/home/romain/Bureau/Suivi/carnet-de
--suivi/test/auto_eval_test.pdf'.
 
-See the pdfpages package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 .../carnet-de-suivi/test/auto_eval_test.pdf}
-                                                  
-? 
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/auto_eval_test.pdf): PDF inclusion: found PDF version <1.7>, but at most
+ version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf, id=
+30, 597.19112pt x 844.11362pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf>
 
-! Package pdfpages Error: Cannot find file `-'.
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf  used on input line 247.
+(pdftex.def)             Requested size: 597.18967pt x 844.11156pt.
 
-See the pdfpages package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 .../carnet-de-suivi/test/auto_eval_test.pdf}
-                                                  
-? 
-! Undefined control sequence.
-\AM@expand@range ...M@i \relax \@tempcntb =\AM@ii 
-                                                  \relax \ifnum \@tempcnta <...
-l.118 .../carnet-de-suivi/test/auto_eval_test.pdf}
-                                                  
-? 
-! Missing number, treated as zero.
-<to be read again> 
-                   \relax 
-l.118 .../carnet-de-suivi/test/auto_eval_test.pdf}
-                                                  
-? 
-! Undefined control sequence.
-\AM@checkpagenumber #1->\ifnum #1>\AM@pagecount 
-                                                \relax \ifthenelse {\boolean...
-l.118 .../carnet-de-suivi/test/auto_eval_test.pdf}
-                                                  
-? 
-! Missing number, treated as zero.
-<to be read again> 
-                   \relax 
-l.118 .../carnet-de-suivi/test/auto_eval_test.pdf}
-                                                  
-? 
 
-! Package pdfpages Error: Page 1 of `\AM@currentdocname ' does not exist.
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/auto_eval_test.pdf): PDF inclusion: found PDF version <1.7>, but at most
+ version <1.5> allowed
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf>
 
-See the pdfpages package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 .../carnet-de-suivi/test/auto_eval_test.pdf}
-                                                  
-? 
-! Undefined control sequence.
-\AM@checkpagenumber #1->\ifnum #1>\AM@pagecount 
-                                                \relax \ifthenelse {\boolean...
-l.118 .../carnet-de-suivi/test/auto_eval_test.pdf}
-                                                  
-? 
-! Missing number, treated as zero.
-<to be read again> 
-                   \relax 
-l.118 .../carnet-de-suivi/test/auto_eval_test.pdf}
-                                                  
-? 
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf  used on input line 247.
+(pdftex.def)             Requested size: 597.18967pt x 844.11156pt.
 
-! Package pdfpages Error: Cannot find file `/home/romain/Bureau/Suivi/carnet-de
--suivi/test/proj_indus_test.pdf'.
 
-See the pdfpages package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.119 ...carnet-de-suivi/test/proj_indus_test.pdf}
-                                                  
-? 
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/auto_eval_test.pdf): PDF inclusion: found PDF version <1.7>, but at most
+ version <1.5> allowed
 
-! Package pdfpages Error: Cannot find file `-'.
 
-See the pdfpages package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.119 ...carnet-de-suivi/test/proj_indus_test.pdf}
-                                                  
-? 
-! Undefined control sequence.
-\AM@expand@range ...M@i \relax \@tempcntb =\AM@ii 
-                                                  \relax \ifnum \@tempcnta <...
-l.119 ...carnet-de-suivi/test/proj_indus_test.pdf}
-                                                  
-? 
-! Missing number, treated as zero.
-<to be read again> 
-                   \relax 
-l.119 ...carnet-de-suivi/test/proj_indus_test.pdf}
-                                                  
-? 
-! Undefined control sequence.
-\AM@checkpagenumber #1->\ifnum #1>\AM@pagecount 
-                                                \relax \ifthenelse {\boolean...
-l.119 ...carnet-de-suivi/test/proj_indus_test.pdf}
-                                                  
-? 
-! Missing number, treated as zero.
-<to be read again> 
-                   \relax 
-l.119 ...carnet-de-suivi/test/proj_indus_test.pdf}
-                                                  
-? 
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/auto_eval_test.pdf): PDF inclusion: found PDF version <1.7>, but at most
+ version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf, id=
+33, page=1, 597.19112pt x 844.11362pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 1>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page1 used on input line 247.
+(pdftex.def)             Requested size: 597.18967pt x 844.11156pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 1>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page1 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+[5
 
-! Package pdfpages Error: Page 1 of `\AM@currentdocname ' does not exist.
+]
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 1>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page1 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 1>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page1 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 1>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page1 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+ [6 </home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf>
+]
 
-See the pdfpages package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.119 ...carnet-de-suivi/test/proj_indus_test.pdf}
-                                                  
-? 
-! Undefined control sequence.
-\AM@checkpagenumber #1->\ifnum #1>\AM@pagecount 
-                                                \relax \ifthenelse {\boolean...
-l.119 ...carnet-de-suivi/test/proj_indus_test.pdf}
-                                                  
-? 
-! Missing number, treated as zero.
-<to be read again> 
-                   \relax 
-l.119 ...carnet-de-suivi/test/proj_indus_test.pdf}
-                                                  
-? 
-[3
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/auto_eval_test.pdf): PDF inclusion: found PDF version <1.7>, but at most
+ version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf, id=
+98, page=2, 597.19112pt x 844.11362pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 2>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page2 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 2>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page2 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 2>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page2 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+[7 </home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf>]
 
-] (./suivi.aux) ) 
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/auto_eval_test.pdf): PDF inclusion: found PDF version <1.7>, but at most
+ version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf, id=
+126, page=3, 597.19112pt x 844.11362pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 3>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page3 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 3>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page3 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 3>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page3 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+[8 </home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf>]
+
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/auto_eval_test.pdf): PDF inclusion: found PDF version <1.7>, but at most
+ version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf, id=
+138, page=4, 597.19112pt x 844.11362pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 4>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page4 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 4>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page4 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 4>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page4 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+[9 </home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf>]
+
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/auto_eval_test.pdf): PDF inclusion: found PDF version <1.7>, but at most
+ version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf, id=
+151, page=5, 597.19112pt x 844.11362pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 5>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page5 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 5>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page5 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 5>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page5 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+[10 </home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf>
+]
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/auto_eval_test.pdf): PDF inclusion: found PDF version <1.7>, but at most
+ version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf, id=
+165, page=6, 597.19112pt x 844.11362pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 6>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page6 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 6>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page6 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 6>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page6 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+[11 </home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf>
+]
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/auto_eval_test.pdf): PDF inclusion: found PDF version <1.7>, but at most
+ version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf, id=
+182, page=7, 597.19112pt x 844.11362pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 7>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page7 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 7>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page7 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 7>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page7 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+[12 </home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf>
+]
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/auto_eval_test.pdf): PDF inclusion: found PDF version <1.7>, but at most
+ version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf, id=
+193, page=8, 597.19112pt x 844.11362pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 8>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page8 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 8>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page8 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 8>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page8 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+[13 </home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf>
+]
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/auto_eval_test.pdf): PDF inclusion: found PDF version <1.7>, but at most
+ version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf, id=
+213, page=9, 597.19112pt x 844.11362pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 9>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page9 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 9>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page9 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 9>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page9 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+[14 </home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf>
+]
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/auto_eval_test.pdf): PDF inclusion: found PDF version <1.7>, but at most
+ version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf, id=
+219, page=10, 597.19112pt x 844.11362pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 10>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page10 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 10>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page10 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf
+ Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf,
+ page 10>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/auto_eval_test.pdf , page10 used on input line 247.
+(pdftex.def)             Requested size: 597.69084pt x 844.81996pt.
+[15 </home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/auto_eval_test.pdf>
+]
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/proj_indus_test.pdf): PDF inclusion: found PDF version <1.7>, but at mos
+t version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf, id
+=237, 597.55246pt x 845.07718pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf  used on input line 248.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/proj_indus_test.pdf): PDF inclusion: found PDF version <1.7>, but at mos
+t version <1.5> allowed
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf  used on input line 248.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/proj_indus_test.pdf): PDF inclusion: found PDF version <1.7>, but at mos
+t version <1.5> allowed
+
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/proj_indus_test.pdf): PDF inclusion: found PDF version <1.7>, but at mos
+t version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf, id
+=240, page=1, 597.55246pt x 845.07718pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+, page 1>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf , page1 used on input line 248.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+, page 1>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf , page1 used on input line 248.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+, page 1>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf , page1 used on input line 248.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+, page 1>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf , page1 used on input line 248.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+, page 1>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf , page1 used on input line 248.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[16 </home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+>]
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/proj_indus_test.pdf): PDF inclusion: found PDF version <1.7>, but at mos
+t version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf, id
+=297, page=2, 597.55246pt x 845.07718pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+, page 2>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf , page2 used on input line 248.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+, page 2>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf , page2 used on input line 248.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+, page 2>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf , page2 used on input line 248.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[17 </home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+>]
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/proj_indus_test.pdf): PDF inclusion: found PDF version <1.7>, but at mos
+t version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf, id
+=303, page=3, 597.55246pt x 845.07718pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+, page 3>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf , page3 used on input line 248.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+, page 3>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf , page3 used on input line 248.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+, page 3>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf , page3 used on input line 248.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[18 </home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+>]
+
+pdfTeX warning: pdflatex (file /home/romain/Bureau/Suivi/carnet-de-suivi/test/a
+nnexes/proj_indus_test.pdf): PDF inclusion: found PDF version <1.7>, but at mos
+t version <1.5> allowed
+</home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf, id
+=310, page=4, 597.55246pt x 845.07718pt>
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+, page 4>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf , page4 used on input line 248.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+, page 4>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf , page4 used on input line 248.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pd
+f Graphic file (type pdf)
+<use /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+, page 4>
+Package pdftex.def Info: /home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes
+/proj_indus_test.pdf , page4 used on input line 248.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[19 </home/romain/Bureau/Suivi/carnet-de-suivi/test/annexes/proj_indus_test.pdf
+>] (./suivi.aux) ) 
 Here is how much of TeX's memory you used:
- 4616 strings out of 478051
- 74332 string characters out of 5840943
- 1861330 words of memory out of 5000000
- 24688 multiletter control sequences out of 15000+600000
+ 4987 strings out of 478051
+ 84401 string characters out of 5840943
+ 1875330 words of memory out of 5000000
+ 25058 multiletter control sequences out of 15000+600000
  523137 words of font info for 52 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,6n,75p,203b,283s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/romain/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen
-/ec/ecbx1728.600pk> </home/romain/.texlive2022/texmf-var/fonts/pk/ljfour/jknapp
-en/ec/ecrm1200.600pk> </home/romain/.texlive2022/texmf-var/fonts/pk/ljfour/jkna
-ppen/ec/ecbx1200.600pk> </home/romain/.texlive2022/texmf-var/fonts/pk/ljfour/jk
-nappen/ec/ecti1440.600pk> </home/romain/.texlive2022/texmf-var/fonts/pk/ljfour/
-jknappen/ec/ecrm1440.600pk> </home/romain/.texlive2022/texmf-var/fonts/pk/ljfou
-r/jknappen/ec/eccc1440.600pk> </home/romain/.texlive2022/texmf-var/fonts/pk/ljf
-our/jknappen/ec/ecbx2488.600pk> </home/romain/.texlive2022/texmf-var/fonts/pk/l
-jfour/jknappen/ec/eccc2074.600pk>
-Output written on suivi.pdf (4 pages, 71178 bytes).
+ 69i,17n,75p,255b,423s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/romain/.texlive2022/texmf-var/fonts/pk/ljfour/jknappe
+n/ec/ecbx1728.600pk> </home/romain/.texlive2022/texmf-var/fonts/pk/ljfour/jknap
+pen/ec/ecrm1200.600pk> </home/romain/.texlive2022/texmf-var/fonts/pk/ljfour/jkn
+appen/ec/ecbx1200.600pk> </home/romain/.texlive2022/texmf-var/fonts/pk/ljfour/j
+knappen/ec/ecti1440.600pk> </home/romain/.texlive2022/texmf-var/fonts/pk/ljfour
+/jknappen/ec/ecrm1440.600pk> </home/romain/.texlive2022/texmf-var/fonts/pk/ljfo
+ur/jknappen/ec/eccc1440.600pk> </home/romain/.texlive2022/texmf-var/fonts/pk/lj
+four/jknappen/ec/ecbx2488.600pk> </home/romain/.texlive2022/texmf-var/fonts/pk/
+ljfour/jknappen/ec/eccc2074.600pk>
+Output written on suivi.pdf (20 pages, 572994 bytes).
 PDF statistics:
- 226 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 537 PDF objects out of 1000 (max. 8388607)
+ 211 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 111 words of extra memory for PDF output out of 10000 (max. 10000000)
 
