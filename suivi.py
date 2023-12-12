@@ -23,7 +23,7 @@ def start():
     print("formatting csv...")
     inputfile = format_csv(inputfile)
     print("done")
-    
+
     print("creating the model...")
     s = open("template1.tex", mode='r', encoding='utf-8-sig').read()
     open("template1.tex", mode='w', encoding='utf-8').write(s)
@@ -71,16 +71,16 @@ def start():
 
     print("done")
 
-    print("reading "+ inputfile)
+    print("reading " + inputfile)
     s = open(inputfile, mode='r', encoding='utf-8-sig').read()
     open(inputfile, mode='w', encoding='utf-8').write(s)
     with open(inputfile, 'r', encoding="utf-8") as f:
         for line in f:
             for char in line:
-                if char ==';' or char == '\n':
+                if char == ';' or char == '\n':
                     Line.append(w)
                     w = ""
-                else :
+                else:
                     w += char
             if Line[0] not in dict:
                 dict[Line[0]] = []
@@ -95,10 +95,10 @@ def start():
     with open(entreprisefile, 'r', encoding="utf-8") as f:
         for line in f:
             for char in line:
-                if char ==';' or char == '\n':
+                if char == ';' or char == '\n':
                     Line.append(w)
                     w = ""
-                else :
+                else:
                     w += char
             if Line[0] not in dict2:
                 dict2[Line[0]] = []
@@ -127,10 +127,10 @@ def start():
     f.close()
     print("done")
 
-    print("generating "+ outputpath + "/carnet.pdf")
+    print("generating " + outputpath + "/carnet.pdf")
     s = open("suivi.tex", mode='r', encoding='utf-8-sig').read()
     open("suivi.tex", mode='w', encoding='utf-8').write(s)
-    with open ("suivi.tex", 'a', encoding="utf-8") as f:
+    with open("suivi.tex", 'a', encoding="utf-8") as f:
         f.write("\chapter{Suivi académique}\n")
         for key in dict.keys():
             f.write("\section*{Semaine " + key + "}\n")
@@ -147,7 +147,7 @@ def start():
 
     s = open("suivi.tex", mode='r', encoding='utf-8-sig').read()
     open("suivi.tex", mode='w', encoding='utf-8').write(s)
-    with open ("suivi.tex", 'a', encoding="utf-8") as f:
+    with open("suivi.tex", 'a', encoding="utf-8") as f:
         f.write("\chapter{Suivi en entreprise}\n")
         for key in dict2.keys():
             f.write("\section*{Semaine " + key + "}\n")
@@ -188,7 +188,7 @@ def format_csv(file):
 
     s = open(file, mode='r', encoding='utf-8-sig').read()
     open(file, mode='w', encoding='utf-8').write(s)
-    with open (file, 'r', encoding="utf-8") as f:
+    with open(file, 'r', encoding="utf-8") as f:
         for line in f:
             l = line
             line_list.append(l)
@@ -199,9 +199,9 @@ def format_csv(file):
         if 48 <= ord(line_list[i][0]) <= 57:
             l = line_list[i][:-1]
             j = 1
-            if i+j < len(line_list):
-                while ord(line_list[i+j][0]) < 48 or 57 < ord(line_list[i+j][0]):
-                    lint = line_list[i+j][:-1]
+            if i + j < len(line_list):
+                while ord(line_list[i + j][0]) < 48 or 57 < ord(line_list[i + j][0]):
+                    lint = line_list[i + j][:-1]
                     l += str(lint)
                     j += 1
 
@@ -214,7 +214,6 @@ def format_csv(file):
             l = ""
     w.close()
     return "format.csv"
-
 
 def start_param():
     print("writing parameters...")
@@ -251,7 +250,7 @@ def select_annexes():
     annexes_text.set(annexes_directory)
 
 def write_img():
-    if(img_text.get() == ""):
+    if (img_text.get() == ""):
         return False
 
     img_path = img_text.get()
@@ -261,7 +260,7 @@ def write_img():
     return True
 
 def write_name():
-    if(name_text.get() == ""):
+    if (name_text.get() == ""):
         return False
 
     name = name_text.get()
@@ -274,36 +273,38 @@ def write_name():
     return True
 
 def write_tut_ac():
-    if(tut_ac_text.get() == ""):
+    if (tut_ac_text.get() == ""):
         return False
 
-    civ = civilite.get()
+    civ = civilite_ac.get()
     tut = ""
     if civ == "Mme." or civ == "Mlle.":
         tut = "Tutrice"
     else:
         tut = "Tuteur"
     t = tut_ac_text.get()
-    text = "\emph{" + tut + " académique:}\\\\ " + civ + " \\textsc{" + t.split(" ")[0] + "} " + t.split(" ")[1] + "\\\\"
+    text = "\emph{" + tut + " académique:}\\\\ " + civ + " \\textsc{" + t.split(" ")[0] + "} " + t.split(" ")[
+        1] + "\\\\"
     with open("tuteur.tex", 'w', encoding="utf-8") as f:
         f.write(text)
     f.close()
     return True
 
 def write_ma():
-    if(ma_text.get() == ""):
+    if (ma_text.get() == ""):
         return False
 
-    civ = civilite2.get()
+    civ = civilite_ma.get()
     m = ma_text.get()
-    text = "\emph{Maître d'apprentissage:}\\\\ " + civ + " \\textsc{" + m.split(" ")[0] + "} " + m.split(" ")[1] + "\\\\"
+    text = "\emph{Maître d'apprentissage:}\\\\ " + civ + " \\textsc{" + m.split(" ")[0] + "} " + m.split(" ")[
+        1] + "\\\\"
     with open("ma.tex", 'w', encoding="utf-8") as f:
         f.write(text)
     f.close()
     return True
 
 def write_annexes():
-    if(annexes_text.get() == ""):
+    if (annexes_text.get() == ""):
         return False
 
     annexes_list = os.listdir(annexes_text.get())
@@ -344,12 +345,10 @@ def write_intro():
     f.close()
     return True
 
-
 def select_conclusion():
     filetypes = (('Texte', '*.txt'), ('All files', '*.*'))
     conclusion = fd.askopenfilename(title='Open a file', initialdir=Path(sys.executable).parent, filetypes=filetypes)
     conclusion_text.set(conclusion)
-
 
 def write_conclusion():
     if (conclusion_text.get() == ""):
@@ -374,28 +373,21 @@ title_label = ttk.Label(root, text="Générateur de carnet de suivi")
 input_label = ttk.Label(root, text="Fichier CSV académique")
 input_text = tk.StringVar()
 input_textfield = tk.Entry(root, width=50, textvariable=input_text)
-# input_textfield.pack()
 input_button = ttk.Button(root, text="Import du fichier CSV", command=select_input)
-# input_button.pack(expand=True)
 
-#csv entrprise
+# csv entrprise
 entreprise_label = ttk.Label(root, text="Fichier CSV entreprise")
 entreprise_text = tk.StringVar()
 entreprise_textfield = tk.Entry(root, width=50, textvariable=entreprise_text)
-# entreprise_textfield.pack()
 entreprise_button = ttk.Button(root, text="Import du fichier CSV", command=select_entreprise)
-# entreprise_button.pack(expand=True)
 
 # dossier sortie
 output_label = ttk.Label(root, text="Dossier de sortie")
 output_text = tk.StringVar()
 output_textfield = tk.Entry(root, width=50, textvariable=output_text)
-# output_textfield.pack()
 output_button = ttk.Button(root, text="Export du fichier PDF", command=select_output)
-# output_button.pack(expand=True)
 
 start_button = ttk.Button(root, text="Lancer", command=start)
-# start_button.pack(expand=True)
 
 param_label = ttk.Label(root, text="Paramètres")
 
@@ -403,57 +395,46 @@ param_label = ttk.Label(root, text="Paramètres")
 img_label = ttk.Label(root, text="Logo entreprise")
 img_text = tk.StringVar()
 img_textfield = tk.Entry(root, width=50, textvariable=img_text)
-# img_textfield.pack()
 img_button = ttk.Button(root, text="Import du logo", command=select_img)
-# img_button.pack(expand=True)
 
 # nom - prénom élève
 name_label = ttk.Label(root, text="Nom et prénom de l'étudiant")
 name_text = tk.StringVar()
 name_textfield = tk.Entry(root, width=50, textvariable=name_text)
-# name_textfield.pack()
 
 # tuteur académique
 tut_ac_label = ttk.Label(root, text="Nom et prénom du tuteur académique")
-civilite = tk.StringVar(root)
-civilite.set("Mme.")
-w = tk.OptionMenu(root, civilite, "Mme.", "Mlle.", "M.")
-# w.pack()
+civilite_ac = tk.StringVar(root)
+civilite_ac.set("Mme.")
+civilite_ac_menu = tk.OptionMenu(root, civilite_ac, "Mme.", "Mlle.", "M.")
 tut_ac_text = tk.StringVar()
 tut_ac_textfield = tk.Entry(root, width=50, textvariable=tut_ac_text)
-# tut_ac_textfield.pack()
 
 # maître d'apprentissage
 ma_label = ttk.Label(root, text="Nom et prénom du maître d'apprentissage")
-civilite2 = tk.StringVar(root)
-civilite2.set("Mme.")
-w2 = tk.OptionMenu(root, civilite2, "Mme.", "Mlle.", "M.")
-# w2.pack()
+civilite_ma = tk.StringVar(root)
+civilite_ma.set("Mme.")
+civilite_ma_menu = tk.OptionMenu(root, civilite_ma, "Mme.", "Mlle.", "M.")
 ma_text = tk.StringVar()
 ma_textfield = tk.Entry(root, width=50, textvariable=ma_text)
-# ma_textfield.pack()
 
 # intro
 intro_label = ttk.Label(root, text="Introduction")
 intro_text = tk.StringVar()
 intro_textfield = tk.Entry(root, width=50, textvariable=intro_text)
 intro_button = ttk.Button(root, text="Introduction", command=select_intro)
-# intro_textfield.pack()
 
 # conclusion
 conclusion_label = ttk.Label(root, text="Conclusion")
 conclusion_text = tk.StringVar()
 conclusion_textfield = tk.Entry(root, width=50, textvariable=conclusion_text)
 conclusion_button = ttk.Button(root, text="Conclusion", command=select_conclusion)
-# conclusion_textfield.pack()
 
 # annexes
 annexes_label = ttk.Label(root, text="Dossier des annexes")
 annexes_text = tk.StringVar()
 annexes_textfield = tk.Entry(root, width=50, textvariable=annexes_text)
-# annexes_textfield.pack()
 annexes_button = ttk.Button(root, text="Annexes", command=select_annexes)
-# annexes_button.pack(expand=True)
 
 close_button = ttk.Button(root, text="Fermer", command=root.destroy)
 # close_button.pack(expand=True)
@@ -477,10 +458,10 @@ img_textfield.grid(row=6, column=2, pady=5)
 name_label.grid(row=7, column=0, pady=5)
 name_textfield.grid(row=7, column=2, pady=5)
 tut_ac_label.grid(row=8, column=0, pady=5)
-w.grid(row=8, column=1, pady=5)
+civilite_ac_menu.grid(row=8, column=1, pady=5)
 tut_ac_textfield.grid(row=8, column=2, pady=5)
 ma_label.grid(row=9, column=0, pady=5)
-w2.grid(row=9, column=1, pady=5)
+civilite_ma_menu.grid(row=9, column=1, pady=5)
 ma_textfield.grid(row=9, column=2, pady=5)
 intro_label.grid(row=10, column=0, pady=5)
 intro_button.grid(row=10, column=1, pady=5)
