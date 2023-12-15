@@ -441,7 +441,6 @@ annexes_textfield = tk.Entry(root, width=50, textvariable=annexes_text)
 annexes_button = ttk.Button(root, text="Annexes", command=select_annexes)
 
 close_button = ttk.Button(root, text="Fermer", command=root.destroy)
-# close_button.pack(expand=True)
 
 # positions
 title_label.grid(row=0, column=0, columnspan=2, pady=10)
