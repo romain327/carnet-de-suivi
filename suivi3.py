@@ -110,7 +110,6 @@ def start():
             Line = []
     f.close()
     print("done")
-    print(dict2)
 
     with open("suivi.tex", 'w', encoding="utf-8") as f:
         f.write(template1)
@@ -183,7 +182,8 @@ def start():
     os.system("pdflatex suivi.tex")
     os.system("pdflatex suivi.tex")
     os.system("mv suivi.pdf " + outputpath)
-    os.system("rm suivi.aux suivi.log suivi.toc suivi.tex format.csv")
+    os.system("rm suivi.aux suivi.log suivi.toc format.csv suivi.tex")
+    os.system("rm -r out")
     print("done")
 
 def format_csv(file):
