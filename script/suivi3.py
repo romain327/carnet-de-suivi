@@ -22,47 +22,47 @@ def start():
     print("done")
 
     print("creating the model...")
-    s = open("files/template1.tex", mode='r', encoding='utf-8-sig').read()
-    open("files/template1.tex", mode='w', encoding='utf-8').write(s)
-    with open("files/template1.tex", 'r', encoding="utf-8") as f:
+    s = open("../files/template1.tex", mode='r', encoding='utf-8-sig').read()
+    open("../files/template1.tex", mode='w', encoding='utf-8').write(s)
+    with open("../files/template1.tex", 'r', encoding="utf-8") as f:
         template1 = f.read()
     f.close()
 
-    s = open("files/template2.tex", mode='r', encoding='utf-8-sig').read()
-    open("files/template2.tex", mode='w', encoding='utf-8').write(s)
-    with open("files/template2.tex", 'r', encoding="utf-8") as f:
+    s = open("../files/template2.tex", mode='r', encoding='utf-8-sig').read()
+    open("../files/template2.tex", mode='w', encoding='utf-8').write(s)
+    with open("../files/template2.tex", 'r', encoding="utf-8") as f:
         template2 = f.read()
     f.close()
 
-    s = open("files/template3.tex", mode='r', encoding='utf-8-sig').read()
-    open("files/template3.tex", mode='w', encoding='utf-8').write(s)
-    with open("files/template3.tex", 'r', encoding="utf-8") as f:
+    s = open("../files/template3.tex", mode='r', encoding='utf-8-sig').read()
+    open("../files/template3.tex", mode='w', encoding='utf-8').write(s)
+    with open("../files/template3.tex", 'r', encoding="utf-8") as f:
         template3 = f.read()
     f.close()
 
-    s = open("files/template4.tex", mode='r', encoding='utf-8-sig').read()
-    open("files/template4.tex", mode='w', encoding='utf-8').write(s)
-    with open("files/template4.tex", 'r', encoding="utf-8") as f:
+    s = open("../files/template4.tex", mode='r', encoding='utf-8-sig').read()
+    open("../files/template4.tex", mode='w', encoding='utf-8').write(s)
+    with open("../files/template4.tex", 'r', encoding="utf-8") as f:
         template4 = f.read()
     f.close()
 
-    with open("files/img.tex", 'r', encoding="utf-8") as f:
+    with open("../files/img.tex", 'r', encoding="utf-8") as f:
         img = f.read()
     f.close()
 
-    with open("files/nom.tex", 'r', encoding="utf-8") as f:
+    with open("../files/nom.tex", 'r', encoding="utf-8") as f:
         name = f.read()
     f.close()
 
-    with open("files/tuteur.tex", 'r', encoding="utf-8") as f:
+    with open("../files/tuteur.tex", 'r', encoding="utf-8") as f:
         tuteur = f.read()
     f.close()
 
-    with open("files/ma.tex", 'r', encoding="utf-8") as f:
+    with open("../files/ma.tex", 'r', encoding="utf-8") as f:
         ma = f.read()
     f.close()
 
-    with open("files/annexes.tex", 'r', encoding="utf-8") as f:
+    with open("../files/annexes.tex", 'r', encoding="utf-8") as f:
         annexes = f.read()
     f.close()
 
@@ -159,7 +159,7 @@ def start():
     f.close()
     print("done")
 
-    text = open("files/conclusion.txt", mode='r', encoding='utf-8').read()
+    text = open("../files/conclusion.txt", mode='r', encoding='utf-8').read()
 
     s = open("suivi.tex", mode='r', encoding='utf-8-sig').read()
     open("suivi.tex", mode='w', encoding='utf-8').write(s)
@@ -251,7 +251,7 @@ def write_img():
         return False
 
     img_path = img_text.get()
-    with open("files/img.tex", 'w', encoding="utf-8") as f:
+    with open("../files/img.tex", 'w', encoding="utf-8") as f:
         f.write("\includegraphics[width=\\textwidth]{" + img_path + "}\n")
     f.close()
     return True
@@ -263,7 +263,7 @@ def write_name():
     name = name_text.get()
     first = name.split(" ")[1] + "\\\\"
     last = "\\textsc{" + name.split(" ")[0] + "}"
-    with open("files/nom.tex", 'w', encoding="utf-8") as f:
+    with open("../files/nom.tex", 'w', encoding="utf-8") as f:
         f.write(last + " " + first)
         f.write("promotion 2023-2026")
     f.close()
@@ -282,7 +282,7 @@ def write_tut_ac():
     t = tut_ac_text.get()
     text = "\emph{" + tut + " académique:}\\\\ " + civ + " \\textsc{" + t.split(" ")[0] + "} " + t.split(" ")[
         1] + "\\\\"
-    with open("files/tuteur.tex", 'w', encoding="utf-8") as f:
+    with open("../files/tuteur.tex", 'w', encoding="utf-8") as f:
         f.write(text)
     f.close()
     return True
@@ -295,7 +295,7 @@ def write_ma():
     m = ma_text.get()
     text = "\emph{Maître d'apprentissage:}\\\\ " + civ + " \\textsc{" + m.split(" ")[0] + "} " + m.split(" ")[
         1] + "\\\\"
-    with open("files/ma.tex", 'w', encoding="utf-8") as f:
+    with open("../files/ma.tex", 'w', encoding="utf-8") as f:
         f.write(text)
     f.close()
     return True
@@ -305,7 +305,7 @@ def write_annexes():
         return False
 
     annexes_list = os.listdir(annexes_text.get())
-    with open("files/annexes.tex", 'w', encoding="utf-8") as f:
+    with open("../files/annexes.tex", 'w', encoding="utf-8") as f:
         for annex in annexes_list:
             annex_path = annexes_text.get() + "/" + annex
             annex_extension = annex.split(".")[1]
@@ -332,7 +332,7 @@ def write_intro():
     text = w.read()
     w.close()
 
-    f = open("files/template4.tex", mode='w', encoding='utf-8')
+    f = open("../files/template4.tex", mode='w', encoding='utf-8')
     f.write("\end{center}")
     f.write("\end{titlepage}")
     f.write("\setcounter{tocdepth}{1}")
@@ -356,7 +356,7 @@ def write_conclusion():
     text = w.read()
     w.close()
 
-    f = open("files/conclusion.txt", mode='w', encoding='utf-8')
+    f = open("../files/conclusion.txt", mode='w', encoding='utf-8')
     f.write(text)
     f.close()
     return True
