@@ -1,8 +1,5 @@
 import os
 
-os.system("python -m pip install --upgrade pip")
-os.system("python -m pip install pathlib")
-
 import tkinter as tk
 from tkinter import filedialog as fd
 import sys
