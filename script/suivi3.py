@@ -174,9 +174,9 @@ def start():
     print("making pdf...")
     os.system("pdflatex suivi.tex")
     os.system("pdflatex suivi.tex")
-    os.system("move suivi.pdf " + outputpath)
-    os.system("del suivi.aux suivi.log suivi.toc format.csv suivi.tex")
-    os.system("del /s /q out")
+    os.system("mv suivi.pdf " + outputpath)
+    os.system("rm suivi.aux suivi.log suivi.toc format.csv suivi.tex")
+    os.system("rm -r out")
     print("done")
 
 def format_csv(file):
