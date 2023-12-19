@@ -27,32 +27,21 @@ if system == "Windows" :
     os.system("python -m pip install --upgrade pip")
     os.system("python -m pip install tk")
     print("installation terminée")
-    answer = str(input("Voulez-vous lancer l'application ? (O/n)"))
-    if answer == "O" or answer == "o" :
-        os.system("python script/start.py")
-    else :
-        exit(0)
+    os.system("python script/start.py")
 
 elif system == "Linux" :
     os.system("sudo apt install texlive")
     os.system("sudo apt install python3-pip")
-    os.system("sudo apt install python3-tk")
     os.system("python3 -m pip install --upgrade --break-system-packages pip")
+    os.system("python3 -m pip install --break-system-packages tk")
     print("installation terminée")
-    answer = str(input("Voulez-vous lancer l'application ? (0/n)"))
-    if answer == "O" or answer == "o" :
-        os.system("python3 script/start.py")
-    else :
-        exit(0)
+    os.system("python3 script/start.py")
+
 else :
     os.system("sudo brew install texlive")
     os.system("sudo brew install python3-pip")
-    os.system("sudo brew install python3-tk")
     os.system("python3 -m pip install --upgrade --break-system-packages pip")
+    os.system("python3 -m pip install --break-system-packages tk")
     print("installation terminée")
-    answer = str(input("Voulez-vous lancer l'application ? (O/n)"))
-    if answer == "O" or answer == "o" :
-        os.system("python3 script/start.py")
-    else :
-        exit(0)
+    os.system("python3 script/start.py")
 

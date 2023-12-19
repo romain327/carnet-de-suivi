@@ -17,7 +17,28 @@ Si vous obtenez des erreurs à la compilation, vérifiez que texlive et tkinter 
 
 ### Sous Linux/MacOS
 - Installer Python : ouvrir un terminal et entrer : sudo apt-get install python3.8
-- Lancer le programme : ouvrir un terminal, se placer dans le dossier carnet-de-suivi, entrer la commande: python3 app.py
-  - Les paquets qui seront installés sont : texlive, pip, et tkinter
 
 ## Utilisation
+### Première utilisation
+- Lancer le programme
+  - Sous Windows : double cliquer sur l'exécutable app.exe
+  - Sous Linux/MacOS : ouvrir un terminal et entrer : python3 app.py
+- Des paquets sont installés automatiquement lors de la première utilisation.
+  - Sous windows, tkinter est installé automatiquement.
+  - Sous linux, texlive, pip et tkinter sont installés automatiquement.
+- Une fois l'installation terminée, le programme se lance automatiquement.
+
+### Utilisation normale
+- Lancer le programme, un fenêtre s'ouvre.
+  - La fenêtre est divisée en deux parties :
+    - en haut les champs d'import des CSV cours et entreprise,
+    - en bas les paramètres du carnet.
+  
+- Importer les CSV cours et entreprise
+- Choisir un répertoire pour l'export du PDF
+- Lors de la première utilisaiton, il faudra remplir les paramètres du carnet avec vos informations personnelles. Ensuite vos choix seront enregistrés.
+- Cliquer sur Lancer
+- Le PDF est généré dans le répertoire choisi.
+
+## Conseils
+- Pour conserver les paramètres, l'application écrit dans un fichier le path des fichiers choisis. Si vous déplacez les fichiers, il faudra les rechoisir. Il est donc conseillé de conserver tous ces fichiers dans un répertoir et de ne plus y toucher.
