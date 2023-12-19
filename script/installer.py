@@ -26,7 +26,6 @@ print("installation des librairies...")
 if system == "Windows" :
     os.system("python -m pip install --upgrade pip")
     os.system("python -m pip install tk")
-    os.system("python -m pip install pathlib")
     print("installation terminée")
     answer = str(input("Voulez-vous lancer l'application ? (O/n)"))
     if answer == "O" or answer == "o" :
@@ -39,7 +38,6 @@ elif system == "Linux" :
     os.system("sudo apt install python3-pip")
     os.system("sudo apt install python3-tk")
     os.system("python3 -m pip install --upgrade --break-system-packages pip")
-    os.system("python3 -m pip install --break-system-packages pathlib")
     print("installation terminée")
     answer = str(input("Voulez-vous lancer l'application ? (0/n)"))
     if answer == "O" or answer == "o" :
@@ -51,7 +49,6 @@ else :
     os.system("sudo brew install python3-pip")
     os.system("sudo brew install python3-tk")
     os.system("python3 -m pip install --upgrade --break-system-packages pip")
-    os.system("python3 -m pip install --break-system-packages pathlib")
     print("installation terminée")
     answer = str(input("Voulez-vous lancer l'application ? (O/n)"))
     if answer == "O" or answer == "o" :

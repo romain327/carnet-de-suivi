@@ -2,20 +2,22 @@
 
 Statut : en cours de developpement
 
-Ce projet est un générateur de carnet de suivi.
-La fenêtre se compose en 2 parties :
-- la partie import/export, où il vous suffit d'importer votre carnet de suivi sous format csv, et de choisir le repertoire d'enregistrement
-- la partie paramètre qui sert à modifier les différents paramètres du carnet
+## Description
+Ce projet est un générateur de carnet de suivi pour les étudiants en alternance de Polytech Tours.
 
-Concernant la partie paramètre, vous n'avez pas besoin de les changer à chaque fois. Tant que vous ne les changez pas, ils resteront identiques à ceux choisis lirs de la première fois.
-
-## Lancement du programe
+## Installation et lancement du programme
 ### Sous Windows
-- Installer Python
-- Lancer le programe : ouvrir un invite de commande, aller dans le dossier carnet-de-suivi, entrer la commande: python suivi.py
-Si vous obtenez des erreurs à la compilation, vérifiez que pip et les librairies Tkinter et sys sont bien installées.
+- Installer Python : https://www.python.org/downloads/windows/
+  - cocher la case "Add Python 3.x to PATH"
+- installer pip : https://pip.pypa.io/en/stable/installing/
+- installer texlive : https://tug.org/texlive/windows.html
+- Lancer le programe : double cliquer sur l'exécutable app.exe. Lors du premier lancement, tkinter sera installé si vous ne l'avez pas déjà.
+
+Si vous obtenez des erreurs à la compilation, vérifiez que texlive et tkinter sont bien installés, et que vous utilisez bien une version récente de python (3.6 ou plus).
 
 ### Sous Linux/MacOS
-- Installer Python
-- Lancer le programme : ouvrir un terminal, se placer dans le dossier carnet-de-suivi, entrer la commande: python3 suivi3.py
-Si vous obtenez des erreurs c'est pas normal
+- Installer Python : ouvrir un terminal et entrer : sudo apt-get install python3.8
+- Lancer le programme : ouvrir un terminal, se placer dans le dossier carnet-de-suivi, entrer la commande: python3 app.py
+  - Les paquets qui seront installés sont : texlive, pip, et tkinter
+
+## Utilisation

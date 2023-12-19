@@ -2,8 +2,6 @@ import os
 
 import tkinter as tk
 from tkinter import filedialog as fd
-import sys
-from pathlib import Path
 from tkinter import ttk
 from tkinter import messagebox
 
@@ -225,12 +223,12 @@ def start_param():
 
 def select_input():
     filetypes = (('Csv files', '*.csv'), ('All files', '*.*'))
-    filename = fd.askopenfilename(title='Open a file', initialdir=Path(sys.executable).parent, filetypes=filetypes)
+    filename = fd.askopenfilename(title='Open a file', initialdir=os.getcwd(), filetypes=filetypes)
     input_text.set(filename)
 
 def select_entreprise():
     filetypes = (('Csv files', '*.csv'), ('All files', '*.*'))
-    filename = fd.askopenfilename(title='Open a file', initialdir=Path(sys.executable).parent, filetypes=filetypes)
+    filename = fd.askopenfilename(title='Open a file', initialdir=os.getcwd(), filetypes=filetypes)
     entreprise_text.set(filename)
 
 def select_output():
@@ -239,7 +237,7 @@ def select_output():
 
 def select_img():
     filetypes = (('Jpg files', '*.jpg'), ('Png files', '*.png'), ('All files', '*.*'))
-    filename = fd.askopenfilename(title='Open a file', initialdir=Path(sys.executable).parent, filetypes=filetypes)
+    filename = fd.askopenfilename(title='Open a file', initialdir=os.getcwd(), filetypes=filetypes)
     img_text.set(filename)
 
 def select_annexes():
@@ -320,7 +318,7 @@ def write_annexes():
 
 def select_intro():
     filetypes = (('Texte', '*.txt'), ('All files', '*.*'))
-    intro = fd.askopenfilename(title='Open a file', initialdir=Path(sys.executable).parent, filetypes=filetypes)
+    intro = fd.askopenfilename(title='Open a file', initialdir=os.getcwd(), filetypes=filetypes)
     intro_text.set(intro)
 
 def write_intro():
@@ -344,7 +342,7 @@ def write_intro():
 
 def select_conclusion():
     filetypes = (('Texte', '*.txt'), ('All files', '*.*'))
-    conclusion = fd.askopenfilename(title='Open a file', initialdir=Path(sys.executable).parent, filetypes=filetypes)
+    conclusion = fd.askopenfilename(title='Open a file', initialdir=os.getcwd(), filetypes=filetypes)
     conclusion_text.set(conclusion)
 
 def write_conclusion():
