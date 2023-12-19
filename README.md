@@ -7,6 +7,9 @@ Ce projet est un générateur de carnet de suivi pour les étudiants en alternan
 
 ## Installation et lancement du programme
 ### Sous Windows
+- Installer git : https://git-scm.com/download/win
+  - Se placer dans le répertoire dans lequel on souhaite installer le programme
+  - Ouvrir git bash et entrer : `git clone https://github.com/romain327/carnet-de-suivi`
 - Installer Python : https://www.python.org/downloads/windows/
   - cocher la case "Add Python 3.x to PATH"
 - installer pip : https://pip.pypa.io/en/stable/installing/
@@ -16,13 +19,16 @@ Ce projet est un générateur de carnet de suivi pour les étudiants en alternan
 Si vous obtenez des erreurs à la compilation, vérifiez que texlive et tkinter sont bien installés, et que vous utilisez bien une version récente de python (3.6 ou plus).
 
 ### Sous Linux/MacOS
-- Installer Python : ouvrir un terminal et entrer : sudo apt-get install python3.8
+- Installer git : ouvrir un terminal et entrer : `sudo apt-get install git`
+  - Se placer dans le répertoire dans lequel on souhaite installer le programme
+  - Ouvrir un terminal et entrer : `git clone https://github.com/romain327/carnet-de-suivi`
+- Installer Python : ouvrir un terminal et entrer : `sudo apt-get install python3.8`
 
 ## Utilisation
 ### Première utilisation
 - Lancer le programme
   - Sous Windows : double cliquer sur l'exécutable app.exe
-  - Sous Linux/MacOS : ouvrir un terminal et entrer : python3 app.py
+  - Sous Linux/MacOS : ouvrir un terminal et entrer : `python3 app.py`
 - Des paquets sont installés automatiquement lors de la première utilisation.
   - Sous windows, tkinter est installé automatiquement.
   - Sous linux, texlive, pip et tkinter sont installés automatiquement.
@@ -41,4 +47,7 @@ Si vous obtenez des erreurs à la compilation, vérifiez que texlive et tkinter 
 - Le PDF est généré dans le répertoire choisi.
 
 ## Conseils
-- Pour conserver les paramètres, l'application écrit dans un fichier le path des fichiers choisis. Si vous déplacez les fichiers, il faudra les rechoisir. Il est donc conseillé de conserver tous ces fichiers dans un répertoir et de ne plus y toucher.
+Pour conserver les paramètres, l'application écrit dans un fichier le path des fichiers choisis. Si vous déplacez les fichiers, il faudra les rechoisir. Il est donc conseillé de conserver tous ces fichiers dans un répertoir et de ne plus y toucher.
+
+## Développement
+Si vous souaithez cloner ce dépot pour faire des tests, des modifications ou des améliorations, des fichiers de test sont disponibles dans le répertoire test.
