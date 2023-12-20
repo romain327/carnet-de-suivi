@@ -25,6 +25,11 @@ Si vous obtenez des erreurs à la compilation, vérifiez que texlive et tkinter 
 - Installer Python : ouvrir un terminal et entrer : `sudo apt-get install python3.8`
 
 ## Utilisation
+### Pré-requis
+- Deux fichiers CSV au format séparateur point-virgule (;), ou séparateur virgule (,) :
+  - Un fichier CSV contenant le carnet de suivi des cours
+  - Un fichier CSV contenant le carnet de suivi de l'entreprise
+
 ### Première utilisation
 - Lancer le programme
   - Sous Windows : double cliquer sur l'exécutable app.exe
