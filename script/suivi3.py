@@ -128,7 +128,7 @@ def start():
         f.write("\chapter{Suivi académique}\n")
         for key in dict.keys():
             f.write("\section*{Semaine " + key + "}\n")
-            f.write("\\" + "begin{tabular}{|l|l|l|l|}\n")
+            f.write("\\" + "begin{tabular*}{\columnwidth}{@{\extracolsep{\\fill}} | p{2cm} | p{5cm} | p{2cm} | p{5cm} |}\n")
             f.write("\hline\n")
             f.write("Matière & Description & Evaluation & Commentaire \\\\ \n")
             f.write("\hline\n")
@@ -145,7 +145,7 @@ def start():
         f.write("\chapter{Suivi en entreprise}\n")
         for key in dict2.keys():
             f.write("\section*{Semaine " + key + "}\n")
-            f.write("\\" + "begin{tabular}{|l|l|l|l|}\n")
+            f.write("\\" + "begin{tabular*}{\columnwidth}{@{\extracolsep{\\fill}} | p{2cm} | p{5cm} | p{2cm} | p{5cm} |}\n")
             f.write("\hline\n")
             f.write("Activité & Description & Evaluation & Commentaire \\\\ \n")
             f.write("\hline\n")

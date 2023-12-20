@@ -128,14 +128,14 @@ def start():
         f.write("\chapter{Suivi académique}\n")
         for key in dict.keys():
             f.write("\section*{Semaine " + key + "}\n")
-            f.write("\\" + "begin{tabular}{|l|l|l|l|}\n")
+            f.write("\\" + "begin{tabular*}{\columnwidth}{@{\extracolsep{\\fill}} | p{2cm} | p{5cm} | p{2cm} | p{5cm} |}\n")
             f.write("\hline\n")
             f.write("Matière & Description & Evaluation & Commentaire \\\\ \n")
             f.write("\hline\n")
             for cat in dict[key]:
                 f.write(cat[0] + " & " + cat[1] + " & " + cat[2] + " & " + cat[3] + " \\\\ \n")
                 f.write("\hline\n")
-            f.write("\end{tabular}\n")
+            f.write("\end{tabular*}\n")
             f.write("\n")
     f.close()
 
@@ -145,14 +145,14 @@ def start():
         f.write("\chapter{Suivi en entreprise}\n")
         for key in dict2.keys():
             f.write("\section*{Semaine " + key + "}\n")
-            f.write("\\" + "begin{tabular}{|l|l|l|l|}\n")
+            f.write("\\" + "begin{tabular*}{\columnwidth}{@{\extracolsep{\\fill}} | p{2cm} | p{5cm} | p{2cm} | p{5cm} |}\n")
             f.write("\hline\n")
             f.write("Activité & Description & Evaluation & Commentaire \\\\ \n")
             f.write("\hline\n")
             for cat in dict2[key]:
                 f.write(cat[0] + " & " + cat[1] + " & " + cat[2] + " & " + cat[3] + " \\\\ \n")
                 f.write("\hline\n")
-            f.write("\end{tabular}\n")
+            f.write("\end{tabular*}\n")
             f.write("\n")
     f.close()
     print("done")
