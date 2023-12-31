@@ -1,5 +1,4 @@
 import os
-
 import tkinter as tk
 from tkinter import filedialog as fd
 from tkinter import ttk
@@ -24,45 +23,36 @@ def start():
     open("files/template1.tex", mode='w', encoding='utf-8').write(s)
     with open("files/template1.tex", 'r', encoding="utf-8") as f:
         template1 = f.read()
-    f.close()
 
     s = open("files/template2.tex", mode='r', encoding='utf-8-sig').read()
     open("files/template2.tex", mode='w', encoding='utf-8').write(s)
     with open("files/template2.tex", 'r', encoding="utf-8") as f:
         template2 = f.read()
-    f.close()
 
     s = open("files/template3.tex", mode='r', encoding='utf-8-sig').read()
     open("files/template3.tex", mode='w', encoding='utf-8').write(s)
     with open("files/template3.tex", 'r', encoding="utf-8") as f:
         template3 = f.read()
-    f.close()
 
     s = open("files/template4.tex", mode='r', encoding='utf-8-sig').read()
     open("files/template4.tex", mode='w', encoding='utf-8').write(s)
     with open("files/template4.tex", 'r', encoding="utf-8") as f:
         template4 = f.read()
-    f.close()
 
     with open("files/img.tex", 'r', encoding="utf-8") as f:
         img = f.read()
-    f.close()
 
     with open("files/nom.tex", 'r', encoding="utf-8") as f:
         name = f.read()
-    f.close()
 
     with open("files/tuteur.tex", 'r', encoding="utf-8") as f:
         tuteur = f.read()
-    f.close()
 
     with open("files/ma.tex", 'r', encoding="utf-8") as f:
         ma = f.read()
-    f.close()
 
     with open("files/annexes.tex", 'r', encoding="utf-8") as f:
         annexes = f.read()
-    f.close()
 
     print("done")
 
@@ -81,7 +71,6 @@ def start():
                 dict[Line[0]] = []
             dict[Line[0]].append(Line[1:])
             Line = []
-    f.close()
 
     w = ""
 
@@ -99,7 +88,6 @@ def start():
                 dict2[Line[0]] = []
             dict2[Line[0]].append(Line[1:])
             Line = []
-    f.close()
     print("done")
 
     with open("suivi.tex", 'w', encoding="utf-8") as f:
@@ -118,7 +106,6 @@ def start():
         f.write("\n")
         f.write(template4)
         f.write("\n")
-    f.close()
     print("done")
 
     print("generating " + outputpath + "/carnet.pdf")
@@ -133,11 +120,18 @@ def start():
             f.write("Matière & Description & Evaluation & Commentaire \\\\ \n")
             f.write("\hline\n")
             for cat in dict[key]:
+                cond = False
+                for i in range(len(cat[1])-1):
+                    if cat[1][i] == "-" and i > 0 and cond == False and (cat[1][i-1] != " " or cat[1][i+1] != " "):
+                        s1 = cat[1][:i]
+                        s2 = cat[1][i:]
+                        s2 = s2.replace("-", " \\newline - ")
+                        cat[1] = s1 + s2
+                        cond = True
                 f.write(cat[0] + " & " + cat[1] + " & " + cat[2] + " & " + cat[3] + " \\\\ \n")
                 f.write("\hline\n")
             f.write("\end{tabular*}\n")
             f.write("\n")
-    f.close()
 
     s = open("suivi.tex", mode='r', encoding='utf-8-sig').read()
     open("suivi.tex", mode='w', encoding='utf-8').write(s)
@@ -154,7 +148,6 @@ def start():
                 f.write("\hline\n")
             f.write("\end{tabular*}\n")
             f.write("\n")
-    f.close()
     print("done")
 
     text = open("files/conclusion.txt", mode='r', encoding='utf-8').read()
@@ -167,14 +160,12 @@ def start():
         f.write("\chapter{Annexes}\n")
         f.write(annexes)
         f.write("\end{document}")
-    f.close()
     print("done")
     print("making pdf...")
     os.system("pdflatex suivi.tex")
     os.system("pdflatex suivi.tex")
     os.system("move suivi.pdf " + outputpath)
     os.system("del suivi.aux suivi.log suivi.toc format.csv suivi.tex")
-    os.system("del /s /q out")
     print("done")
 
 def format_csv(file):
@@ -187,7 +178,6 @@ def format_csv(file):
         for line in f:
             l = line
             line_list.append(l)
-    f.close()
 
     w = open("format.csv", 'w', encoding="utf-8")
     for i in range(1, len(line_list)):
@@ -251,7 +241,6 @@ def write_img():
     img_path = img_text.get()
     with open("files/img.tex", 'w', encoding="utf-8") as f:
         f.write("\includegraphics[width=\\textwidth]{" + img_path + "}\n")
-    f.close()
     return True
 
 def write_name():
@@ -264,7 +253,6 @@ def write_name():
     with open("files/nom.tex", 'w', encoding="utf-8") as f:
         f.write(last + " " + first)
         f.write("promotion 2023-2026")
-    f.close()
     return True
 
 def write_tut_ac():
@@ -282,7 +270,6 @@ def write_tut_ac():
         1] + "\\\\"
     with open("files/tuteur.tex", 'w', encoding="utf-8") as f:
         f.write(text)
-    f.close()
     return True
 
 def write_ma():
@@ -295,7 +282,6 @@ def write_ma():
         1] + "\\\\"
     with open("files/ma.tex", 'w', encoding="utf-8") as f:
         f.write(text)
-    f.close()
     return True
 
 def write_annexes():
@@ -313,7 +299,6 @@ def write_annexes():
                 f.write("\includegraphics[width=\\textwidth]{" + annex_path + "}\n")
             else:
                 messagebox.showinfo("Erreur", "Le fichier " + annex_path + " n'est pas un fichier pdf, jpg ou png.")
-    f.close()
     return True
 
 def select_intro():
