@@ -1,6 +1,6 @@
 # carnet-de-suivi
 
-Statut : en cours de developpement
+Statut : opérationnel
 
 ## Description
 Ce projet est un générateur de carnet de suivi pour les étudiants en alternance de Polytech Tours.
@@ -14,7 +14,8 @@ Ce projet est un générateur de carnet de suivi pour les étudiants en alternan
   - cocher la case "Add Python 3.x to PATH"
 - installer pip : https://pip.pypa.io/en/stable/installing/
 - installer texlive : https://tug.org/texlive/windows.html
-- Lancer le programe : double cliquer sur l'exécutable app.exe. Lors du premier lancement, tkinter sera installé si vous ne l'avez pas déjà.
+- Lancer le programe : ouvrir l'invite de commande Windows, se placer dans le dossier où se trouve le fichier app.py. Entrer : `python app.py`
+Lors du premier lancement, tkinter sera installé si vous ne l'avez pas déjà.
 
 Si vous obtenez des erreurs à la compilation, vérifiez que texlive et tkinter sont bien installés, et que vous utilisez bien une version récente de python (3.6 ou plus).
 
@@ -23,6 +24,8 @@ Si vous obtenez des erreurs à la compilation, vérifiez que texlive et tkinter 
   - Se placer dans le répertoire dans lequel on souhaite installer le programme
   - Ouvrir un terminal et entrer : `git clone https://github.com/romain327/carnet-de-suivi`
 - Installer Python : ouvrir un terminal et entrer : `sudo apt-get install python3.8`
+- Se placer dans le dossier du projet et entrer : `python3 app.py`
+- Lors du premier lancement, texlive et tkinter seront installés si vous ne les avez pas déjà.
 
 ## Utilisation
 ### Pré-requis
