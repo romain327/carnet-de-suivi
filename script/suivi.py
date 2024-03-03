@@ -1,24 +1,24 @@
 import os
+import platform
 import tkinter as tk
 from tkinter import filedialog as fd
 from tkinter import ttk
 from tkinter import messagebox
+
+system = platform.system()
 
 def start():
     start_param()
     inputfile = input_text.get()
     entreprisefile = entreprise_text.get()
     outputpath = output_text.get()
-    dict = {}
-    dict2 = {}
+    suivi_academique = {}
+    suivi_entreprise = {}
     w = ""
     Line = []
 
-    print("formatting csv...")
     inputfile = format_csv(inputfile)
-    print("done")
 
-    print("creating the model...")
     s = open("files/template1.tex", mode='r', encoding='utf-8-sig').read()
     open("files/template1.tex", mode='w', encoding='utf-8').write(s)
     with open("files/template1.tex", 'r', encoding="utf-8") as f:
@@ -54,41 +54,24 @@ def start():
     with open("files/annexes.tex", 'r', encoding="utf-8") as f:
         annexes = f.read()
 
-    print("done")
-
-    print("reading " + inputfile)
     s = open(inputfile, mode='r', encoding='utf-8-sig').read()
     open(inputfile, mode='w', encoding='utf-8').write(s)
     with open(inputfile, 'r', encoding="utf-8") as f:
         for line in f:
-            for char in line:
-                if char == ';' or char == '\n':
-                    Line.append(w)
-                    w = ""
-                else:
-                    w += char
-            if Line[0] not in dict:
-                dict[Line[0]] = []
-            dict[Line[0]].append(Line[1:])
-            Line = []
+            Line = line.split(";")
+            if Line[0] not in suivi_academique:
+                suivi_academique[Line[0]] = []
+            suivi_academique[Line[0]].append(Line[1:])
 
     w = ""
-
     s = open(entreprisefile, mode='r', encoding='utf-8-sig').read()
     open(entreprisefile, mode='w', encoding='utf-8').write(s)
     with open(entreprisefile, 'r', encoding="utf-8") as f:
         for line in f:
-            for char in line:
-                if char == ';' or char == '\n':
-                    Line.append(w)
-                    w = ""
-                else:
-                    w += char
-            if Line[0] not in dict2:
-                dict2[Line[0]] = []
-            dict2[Line[0]].append(Line[1:])
-            Line = []
-    print("done")
+            Line = line.split(";")
+            if Line[0] not in suivi_entreprise:
+                suivi_entreprise[Line[0]] = []
+            suivi_entreprise[Line[0]].append(Line[1:])
 
     with open("suivi.tex", 'w', encoding="utf-8") as f:
         f.write(template1)
@@ -106,29 +89,26 @@ def start():
         f.write("\n")
         f.write(template4)
         f.write("\n")
-    print("done")
 
-    print("generating " + outputpath + "/carnet.pdf")
     s = open("suivi.tex", mode='r', encoding='utf-8-sig').read()
     open("suivi.tex", mode='w', encoding='utf-8').write(s)
     with open("suivi.tex", 'a', encoding="utf-8") as f:
         f.write("\chapter{Suivi académique}\n")
-        for key in dict.keys():
+        for key in suivi_academique.keys():
             f.write("\section*{Semaine " + key + "}\n")
             f.write("\\" + "begin{tabular*}{\columnwidth}{@{\extracolsep{\\fill}} | p{2cm} | p{5cm} | p{2cm} | p{5cm} |}\n")
             f.write("\hline\n")
             f.write("Matière & Description & Evaluation & Commentaire \\\\ \n")
             f.write("\hline\n")
-            for cat in dict[key]:
-                cond = False
-                for i in range(len(cat[1])-1):
-                    if cat[1][i] == "-" and i > 0 and cond == False and (cat[1][i-1] != " " or cat[1][i+1] != " "):
-                        s1 = cat[1][:i]
-                        s2 = cat[1][i:]
-                        s2 = s2.replace("-", " \\newline - ")
-                        cat[1] = s1 + s2
-                        cond = True
-                f.write(cat[0] + " & " + cat[1] + " & " + cat[2] + " & " + cat[3] + " \\\\ \n")
+            for cat in suivi_academique[key]:
+                tr = 0
+                for i in range(1, len(cat[1])):
+                    if(cat[1][i] == " " and cat[1][i-1] == "-"):
+                        tr += 1
+                if tr > 1:
+                    cat[1] = cat[1].replace("- ", " \\newline - ")
+                cat[3] = cat[3].replace("\n", "")
+                f.write(cat[0] + " & " + cat[1] + " & " + cat[2] + " & " + cat[3] + "\\\\ \n")
                 f.write("\hline\n")
             f.write("\end{tabular*}\n")
             f.write("\n")
@@ -137,21 +117,20 @@ def start():
     open("suivi.tex", mode='w', encoding='utf-8').write(s)
     with open("suivi.tex", 'a', encoding="utf-8") as f:
         f.write("\chapter{Suivi en entreprise}\n")
-        for key in dict2.keys():
+        for key in suivi_entreprise.keys():
             f.write("\section*{Semaine " + key + "}\n")
             f.write("\\" + "begin{tabular*}{\columnwidth}{@{\extracolsep{\\fill}} | p{2cm} | p{5cm} | p{2cm} | p{5cm} |}\n")
             f.write("\hline\n")
             f.write("Activité & Description & Evaluation & Commentaire \\\\ \n")
             f.write("\hline\n")
-            for cat in dict2[key]:
+            for cat in suivi_entreprise[key]:
+                cat[3] = cat[3].replace("\n", "")
                 f.write(cat[0] + " & " + cat[1] + " & " + cat[2] + " & " + cat[3] + " \\\\ \n")
                 f.write("\hline\n")
             f.write("\end{tabular*}\n")
             f.write("\n")
-    print("done")
 
     text = open("files/conclusion.txt", mode='r', encoding='utf-8').read()
-
     s = open("suivi.tex", mode='r', encoding='utf-8-sig').read()
     open("suivi.tex", mode='w', encoding='utf-8').write(s)
     with open("suivi.tex", 'a', encoding="utf-8") as f:
@@ -160,48 +139,47 @@ def start():
         f.write("\chapter{Annexes}\n")
         f.write(annexes)
         f.write("\end{document}")
-    print("done")
-    print("making pdf...")
+
     os.system("pdflatex suivi.tex")
     os.system("pdflatex suivi.tex")
-    os.system("move suivi.pdf " + outputpath)
-    os.system("del suivi.aux suivi.log suivi.toc format.csv suivi.tex")
+
+    if system == "Windows":
+        os.system("move suivi.pdf " + outputpath)
+        #os.system("del suivi.aux suivi.log suivi.toc format.csv suivi.tex")
+    else:
+        os.system("mv suivi.pdf " + outputpath)
+        #os.system("rm suivi.aux suivi.log suivi.toc format.csv suivi.tex")
+
     print("done")
 
-def format_csv(file):
+def format_csv(csv):
+    with open(csv, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
     l = ""
-    line_list = []
-
-    s = open(file, mode='r', encoding='utf-8-sig').read()
-    open(file, mode='w', encoding='utf-8').write(s)
-    with open(file, 'r', encoding="utf-8") as f:
-        for line in f:
-            l = line
-            line_list.append(l)
-
-    w = open("format.csv", 'w', encoding="utf-8")
-    for i in range(1, len(line_list)):
-        if 48 <= ord(line_list[i][0]) <= 57:
-            l = line_list[i][:-1]
-            j = 1
-            if i + j < len(line_list):
-                while ord(line_list[i + j][0]) < 48 or 57 < ord(line_list[i + j][0]):
-                    lint = line_list[i + j][:-1]
-                    l += str(lint)
-                    j += 1
-
-            l = l.replace(", ", "|")
-            l = l.replace(",", ";")
-            l = l.replace("|", ", ")
-            l = l.replace("&", "et")
-            l = l.replace('"', '')
-            w.write(l + "\n")
-            l = ""
-    w.close()
+    f = open("format.csv", 'w', encoding="utf-8")
+    for line in lines:
+        line = format_string(line)
+        if l != "" and line[0].isdigit():
+            if line[0].isdigit():
+                f.write(l + " \n")
+                l = line
+        else :
+            l += line
     return "format.csv"
 
+def format_string(string):
+    string = string.replace(", ", "|")
+    string = string.replace(",", ";")
+    string = string.replace("|", ", ")
+    string = string.replace("\n", "")
+    string = string.replace("\r\n", "")
+    string = string.replace('"', "")
+    string = string.replace("#", "\#")
+    string = string.replace("...", "\ldots")
+    return string
+
 def start_param():
-    print("writing parameters...")
     write_img()
     write_name()
     write_tut_ac()
@@ -209,7 +187,6 @@ def start_param():
     write_annexes()
     write_intro()
     write_conclusion()
-    print("done")
 
 def select_input():
     filetypes = (('Csv files', '*.csv'), ('All files', '*.*'))
@@ -235,7 +212,7 @@ def select_annexes():
     annexes_text.set(annexes_directory)
 
 def write_img():
-    if (img_text.get() == ""):
+    if img_text.get() == "":
         return False
 
     img_path = img_text.get()
@@ -244,7 +221,7 @@ def write_img():
     return True
 
 def write_name():
-    if (name_text.get() == ""):
+    if name_text.get() == "":
         return False
 
     name = name_text.get()
@@ -256,11 +233,10 @@ def write_name():
     return True
 
 def write_tut_ac():
-    if (tut_ac_text.get() == ""):
+    if tut_ac_text.get() == "":
         return False
 
     civ = civilite_ac.get()
-    tut = ""
     if civ == "Mme." or civ == "Mlle.":
         tut = "Tutrice"
     else:
@@ -273,7 +249,7 @@ def write_tut_ac():
     return True
 
 def write_ma():
-    if (ma_text.get() == ""):
+    if ma_text.get() == "":
         return False
 
     civ = civilite_ma.get()
@@ -285,7 +261,7 @@ def write_ma():
     return True
 
 def write_annexes():
-    if (annexes_text.get() == ""):
+    if annexes_text.get() == "":
         return False
 
     annexes_list = os.listdir(annexes_text.get())
@@ -307,7 +283,7 @@ def select_intro():
     intro_text.set(intro)
 
 def write_intro():
-    if (intro_text.get() == ""):
+    if intro_text.get() == "":
         return False
 
     intro_path = intro_text.get()
@@ -331,7 +307,7 @@ def select_conclusion():
     conclusion_text.set(conclusion)
 
 def write_conclusion():
-    if (conclusion_text.get() == ""):
+    if conclusion_text.get() == "":
         return False
 
     conclusion_path = conclusion_text.get()

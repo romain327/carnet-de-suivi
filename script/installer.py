@@ -18,7 +18,7 @@ else :
         file.write("if system == \"Windows\" :\n")
         file.write("    os.system(\"python script/suivi.py\")\n")
         file.write("else :\n")
-        file.write("    os.system(\"python3 script/suivi3.py\")\n")
+        file.write("    os.system(\"python3 script/suivi.py\")\n")
     file.close()
 
 print("installation des librairies...")
