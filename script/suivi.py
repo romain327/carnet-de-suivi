@@ -15,8 +15,7 @@ def start():
     suivi_academique = {}
     suivi_entreprise = {}
     syntheses = setup_syntheses()
-
-    #TODO : gérer l'inclusion des synthèses
+    print(syntheses.keys())
 
     inputfile = format_csv(inputfile)
 
@@ -130,7 +129,7 @@ def start():
             f.write("\end{tabular*}\n")
             f.write("\n")
 
-            f.write("\\paragraph{Synthèse}\n")
+            f.write("\\paragraph{Synthèse :}\n")
             f.write(syntheses[key])
 
     text = open("files/conclusion.txt", mode='r', encoding='utf-8').read()
@@ -344,8 +343,9 @@ def setup_syntheses():
         syntheses_path = f.read()
     syntheses_list = os.listdir(syntheses_path)
     for syntheses in syntheses_list:
-        s = open(syntheses, "r", encoding="utf-8")
-        synth[syntheses] = s.read()
+        s = open(syntheses_path + "/" + syntheses, "r", encoding="utf-8")
+        key = syntheses.split(".")[0]
+        synth[key] = s.read()
         s.close()
     return synth
 
