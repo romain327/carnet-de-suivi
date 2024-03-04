@@ -14,8 +14,9 @@ def start():
     outputpath = output_text.get()
     suivi_academique = {}
     suivi_entreprise = {}
-    w = ""
-    Line = []
+    syntheses = setup_syntheses()
+
+    #TODO : gérer l'inclusion des synthèses
 
     inputfile = format_csv(inputfile)
 
@@ -63,7 +64,6 @@ def start():
                 suivi_academique[Line[0]] = []
             suivi_academique[Line[0]].append(Line[1:])
 
-    w = ""
     s = open(entreprisefile, mode='r', encoding='utf-8-sig').read()
     open(entreprisefile, mode='w', encoding='utf-8').write(s)
     with open(entreprisefile, 'r', encoding="utf-8") as f:
@@ -103,7 +103,7 @@ def start():
             for cat in suivi_academique[key]:
                 tr = 0
                 for i in range(1, len(cat[1])):
-                    if(cat[1][i] == " " and cat[1][i-1] == "-"):
+                    if cat[1][i] == " " and cat[1][i - 1] == "-":
                         tr += 1
                 if tr > 1:
                     cat[1] = cat[1].replace("- ", " \\newline - ")
@@ -130,6 +130,9 @@ def start():
             f.write("\end{tabular*}\n")
             f.write("\n")
 
+            f.write("\\paragraph{Synthèse}\n")
+            f.write(syntheses[key])
+
     text = open("files/conclusion.txt", mode='r', encoding='utf-8').read()
     s = open("suivi.tex", mode='r', encoding='utf-8-sig').read()
     open("suivi.tex", mode='w', encoding='utf-8').write(s)
@@ -145,10 +148,10 @@ def start():
 
     if system == "Windows":
         os.system("move suivi.pdf " + outputpath)
-        #os.system("del suivi.aux suivi.log suivi.toc format.csv suivi.tex")
+        os.system("del suivi.aux suivi.log suivi.toc format.csv suivi.tex")
     else:
         os.system("mv suivi.pdf " + outputpath)
-        #os.system("rm suivi.aux suivi.log suivi.toc format.csv suivi.tex")
+        os.system("rm suivi.aux suivi.log suivi.toc format.csv suivi.tex")
 
     print("done")
 
@@ -184,9 +187,10 @@ def start_param():
     write_name()
     write_tut_ac()
     write_ma()
-    write_annexes()
     write_intro()
+    write_syntheses()
     write_conclusion()
+    write_annexes()
 
 def select_input():
     filetypes = (('Csv files', '*.csv'), ('All files', '*.*'))
@@ -203,9 +207,23 @@ def select_output():
     output_text.set(directory)
 
 def select_img():
-    filetypes = (('Jpg files', '*.jpg'), ('Png files', '*.png'), ('All files', '*.*'))
+    filetypes = (('Image files', '*.png;*.jpg'), ('All files', '*.*'))
     filename = fd.askopenfilename(title='Open a file', initialdir=os.getcwd(), filetypes=filetypes)
     img_text.set(filename)
+
+def select_intro():
+    filetypes = (('Texte', '*.txt'), ('All files', '*.*'))
+    intro = fd.askopenfilename(title='Open a file', initialdir=os.getcwd(), filetypes=filetypes)
+    intro_text.set(intro)
+
+def select_syntheses():
+    syntheses_directory = fd.askdirectory()
+    syntheses_text.set(syntheses_directory)
+
+def select_conclusion():
+    filetypes = (('Texte', '*.txt'), ('All files', '*.*'))
+    conclusion = fd.askopenfilename(title='Open a file', initialdir=os.getcwd(), filetypes=filetypes)
+    conclusion_text.set(conclusion)
 
 def select_annexes():
     annexes_directory = fd.askdirectory()
@@ -260,28 +278,6 @@ def write_ma():
         f.write(text)
     return True
 
-def write_annexes():
-    if annexes_text.get() == "":
-        return False
-
-    annexes_list = os.listdir(annexes_text.get())
-    with open("files/annexes.tex", 'w', encoding="utf-8") as f:
-        for annex in annexes_list:
-            annex_path = annexes_text.get() + "/" + annex
-            annex_extension = annex.split(".")[1]
-            if annex_extension == "pdf":
-                f.write("\includepdf[pages=-]{" + annex_path + "}\n")
-            elif annex_extension == "jpg" or annex_extension == "png":
-                f.write("\includegraphics[width=\\textwidth]{" + annex_path + "}\n")
-            else:
-                messagebox.showinfo("Erreur", "Le fichier " + annex_path + " n'est pas un fichier pdf, jpg ou png.")
-    return True
-
-def select_intro():
-    filetypes = (('Texte', '*.txt'), ('All files', '*.*'))
-    intro = fd.askopenfilename(title='Open a file', initialdir=os.getcwd(), filetypes=filetypes)
-    intro_text.set(intro)
-
 def write_intro():
     if intro_text.get() == "":
         return False
@@ -301,10 +297,14 @@ def write_intro():
     f.close()
     return True
 
-def select_conclusion():
-    filetypes = (('Texte', '*.txt'), ('All files', '*.*'))
-    conclusion = fd.askopenfilename(title='Open a file', initialdir=os.getcwd(), filetypes=filetypes)
-    conclusion_text.set(conclusion)
+def write_syntheses():
+    if syntheses_text.get() == "":
+        return False
+
+    else:
+        with open("files/syntheses.txt", "w", encoding="utf-8") as f:
+            f.write(syntheses_text.get())
+    return True
 
 def write_conclusion():
     if conclusion_text.get() == "":
@@ -319,6 +319,35 @@ def write_conclusion():
     f.write(text)
     f.close()
     return True
+
+def write_annexes():
+    if annexes_text.get() == "":
+        return False
+
+    annexes_list = os.listdir(annexes_text.get())
+    with open("files/annexes.tex", 'w', encoding="utf-8") as f:
+        for annex in annexes_list:
+            annex_path = annexes_text.get() + "/" + annex
+            annex_extension = annex.split(".")[1]
+            if annex_extension == "pdf":
+                f.write("\includepdf[pages=-]{" + annex_path + "}\n")
+            elif annex_extension == "jpg" or annex_extension == "png":
+                f.write("\includegraphics[width=\\textwidth]{" + annex_path + "}\n")
+            else:
+                messagebox.showinfo("Erreur", "Le fichier " + annex_path + " n'est pas un fichier pdf, jpg ou png.")
+    return True
+
+def setup_syntheses():
+    synth = {}
+
+    with open("files/syntheses.txt", "r", encoding="utf-8") as f:
+        syntheses_path = f.read()
+    syntheses_list = os.listdir(syntheses_path)
+    for syntheses in syntheses_list:
+        s = open(syntheses, "r", encoding="utf-8")
+        synth[syntheses] = s.read()
+        s.close()
+    return synth
 
 root = tk.Tk()
 root.geometry("800x600")
@@ -380,6 +409,12 @@ intro_text = tk.StringVar()
 intro_textfield = tk.Entry(root, width=50, textvariable=intro_text)
 intro_button = ttk.Button(root, text="Introduction", command=select_intro)
 
+# synthèses
+syntheses_label = ttk.Label(root, text="Dossier des synthèses")
+syntheses_text = tk.StringVar()
+syntheses_textfield = tk.Entry(root, width=50, textvariable=syntheses_text)
+syntheses_button = ttk.Button(root, text="Synthèses", command=select_syntheses)
+
 # conclusion
 conclusion_label = ttk.Label(root, text="Conclusion")
 conclusion_text = tk.StringVar()
@@ -421,11 +456,14 @@ ma_textfield.grid(row=9, column=2, pady=5)
 intro_label.grid(row=10, column=0, pady=5)
 intro_button.grid(row=10, column=1, pady=5)
 intro_textfield.grid(row=10, column=2, pady=5)
-conclusion_label.grid(row=11, column=0, pady=5)
-conclusion_button.grid(row=11, column=1, pady=5)
-conclusion_textfield.grid(row=11, column=2, pady=5)
-annexes_label.grid(row=12, column=0, pady=5)
-annexes_button.grid(row=12, column=1, pady=5)
-annexes_textfield.grid(row=12, column=2, pady=5)
-close_button.grid(row=13, column=0, pady=10)
+syntheses_label.grid(row=11, column=0, pady=5)
+syntheses_button.grid(row=11, column=1, pady=5)
+syntheses_textfield.grid(row=11, column=2, pady=5)
+conclusion_label.grid(row=12, column=0, pady=5)
+conclusion_button.grid(row=12, column=1, pady=5)
+conclusion_textfield.grid(row=12, column=2, pady=5)
+annexes_label.grid(row=13, column=0, pady=5)
+annexes_button.grid(row=13, column=1, pady=5)
+annexes_textfield.grid(row=13, column=2, pady=5)
+close_button.grid(row=14, column=0, columnspan=2, pady=10)
 root.mainloop()
