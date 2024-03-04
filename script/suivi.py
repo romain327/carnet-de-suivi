@@ -15,7 +15,6 @@ def start():
     suivi_academique = {}
     suivi_entreprise = {}
     syntheses = setup_syntheses()
-    print(syntheses.keys())
 
     inputfile = format_csv(inputfile)
 
@@ -93,6 +92,12 @@ def start():
     open("suivi.tex", mode='w', encoding='utf-8').write(s)
     with open("suivi.tex", 'a', encoding="utf-8") as f:
         f.write("\chapter{Suivi académique}\n")
+        f.write("Auto-évaluation:\\\\ \n")
+        f.write("N: Notion\\\\ \n")
+        f.write("A: Application\\\\ \n")
+        f.write("M: Maîtrise\\\\ \n")
+        f.write("E: Expertise\\\\ \n")
+        f.write("NA: Non évalué\\\\ \n")
         for key in suivi_academique.keys():
             f.write("\section*{Semaine " + key + "}\n")
             f.write("\\" + "begin{tabular*}{\columnwidth}{@{\extracolsep{\\fill}} | p{2cm} | p{5cm} | p{2cm} | p{5cm} |}\n")
@@ -177,7 +182,6 @@ def format_string(string):
     string = string.replace("\n", "")
     string = string.replace("\r\n", "")
     string = string.replace('"', "")
-    string = string.replace("#", "\#")
     string = string.replace("...", "\ldots")
     return string
 
