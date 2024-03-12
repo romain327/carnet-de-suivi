@@ -8,12 +8,13 @@ from tkinter import messagebox
 system = platform.system()
 
 def start():
-    start_param()
+    filen = start_param()
     inputfile = input_text.get()
     entreprisefile = entreprise_text.get()
     outputpath = output_text.get()
     suivi_academique = {}
     suivi_entreprise = {}
+    eoc = setup_eoc()
     syntheses = setup_syntheses()
 
     inputfile = format_csv(inputfile)
@@ -71,7 +72,10 @@ def start():
                 suivi_entreprise[Line[0]] = []
             suivi_entreprise[Line[0]].append(Line[1:])
 
-    with open("suivi.tex", 'w', encoding="utf-8") as f:
+    filena = "carnet_suivi_" + filen
+    filename = "carnet_suivi_" + filen + ".tex"
+
+    with open(filename, 'w', encoding="utf-8") as f:
         f.write(template1)
         f.write("\n")
         f.write(name)
@@ -88,9 +92,9 @@ def start():
         f.write(template4)
         f.write("\n")
 
-    s = open("suivi.tex", mode='r', encoding='utf-8-sig').read()
-    open("suivi.tex", mode='w', encoding='utf-8').write(s)
-    with open("suivi.tex", 'a', encoding="utf-8") as f:
+    s = open(filename, mode='r', encoding='utf-8-sig').read()
+    open(filename, mode='w', encoding='utf-8').write(s)
+    with open(filename, 'a', encoding="utf-8") as f:
         f.write("\chapter{Suivi académique}\n")
         f.write("Auto-évaluation:\\\\ \n")
         f.write("N: Notion\\\\ \n")
@@ -116,16 +120,19 @@ def start():
                 f.write("\hline\n")
             f.write("\end{tabular*}\n")
             f.write("\n")
+        for key in eoc.keys():
+            f.write("\paragraph*{" + key + ":}" + "\n")
+            f.write(eoc[key] + "\\\\ \n")
 
-    s = open("suivi.tex", mode='r', encoding='utf-8-sig').read()
-    open("suivi.tex", mode='w', encoding='utf-8').write(s)
-    with open("suivi.tex", 'a', encoding="utf-8") as f:
+    s = open(filename, mode='r', encoding='utf-8-sig').read()
+    open(filename, mode='w', encoding='utf-8').write(s)
+    with open(filename, 'a', encoding="utf-8") as f:
         f.write("\chapter{Suivi en entreprise}\n")
         for key in suivi_entreprise.keys():
             f.write("\section*{Semaine " + key + "}\n")
-            f.write("\\" + "begin{tabular*}{\columnwidth}{@{\extracolsep{\\fill}} | p{2cm} | p{5cm} | p{2cm} | p{5cm} |}\n")
+            f.write("\\" + "begin{tabular*}{\columnwidth}{@{\extracolsep{\\fill}} | p{4cm} | p{4cm} | p{3cm} | p{3cm} |}\n")
             f.write("\hline\n")
-            f.write("Activité & Description & Evaluation & Commentaire \\\\ \n")
+            f.write("Activités prévue & Activités réalisées & Commetaire & Compétences \\\\ \n")
             f.write("\hline\n")
             for cat in suivi_entreprise[key]:
                 cat[3] = cat[3].replace("\n", "")
@@ -138,24 +145,24 @@ def start():
             f.write(syntheses[key])
 
     text = open("files/conclusion.txt", mode='r', encoding='utf-8').read()
-    s = open("suivi.tex", mode='r', encoding='utf-8-sig').read()
-    open("suivi.tex", mode='w', encoding='utf-8').write(s)
-    with open("suivi.tex", 'a', encoding="utf-8") as f:
+    s = open(filename, mode='r', encoding='utf-8-sig').read()
+    open(filename, mode='w', encoding='utf-8').write(s)
+    with open(filename, 'a', encoding="utf-8") as f:
         f.write("\chapter{Conclusion}\n")
         f.write(text)
         f.write("\chapter{Annexes}\n")
         f.write(annexes)
         f.write("\end{document}")
 
-    os.system("pdflatex suivi.tex")
-    os.system("pdflatex suivi.tex")
+    os.system("pdflatex " + filename)
+    os.system("pdflatex " + filename)
 
     if system == "Windows":
-        os.system("move suivi.pdf " + outputpath)
-        os.system("del suivi.aux suivi.log suivi.toc format.csv suivi.tex")
+        os.system("move " + filena + ".pdf " + outputpath)
+        os.system("del " + filena + ".aux " + filena + ".log " + filena + ".toc format.csv " + filena + ".tex")
     else:
-        os.system("mv suivi.pdf " + outputpath)
-        os.system("rm suivi.aux suivi.log suivi.toc format.csv suivi.tex")
+        os.system("mv " + filena + ".pdf " + outputpath)
+        os.system("rm " + filena + ".aux " + filena + ".log " + filena + ".toc format.csv " + filena + ".tex")
 
     print("done")
 
@@ -179,6 +186,7 @@ def format_string(string):
     string = string.replace(", ", "|")
     string = string.replace(",", ";")
     string = string.replace("|", ", ")
+    string = string.replace("&", "et")
     string = string.replace("\n", "")
     string = string.replace("\r\n", "")
     string = string.replace('"', "")
@@ -187,13 +195,15 @@ def format_string(string):
 
 def start_param():
     write_img()
-    write_name()
+    last = write_name()
     write_tut_ac()
     write_ma()
     write_intro()
+    write_eoc()
     write_syntheses()
     write_conclusion()
     write_annexes()
+    return last
 
 def select_input():
     filetypes = (('Csv files', '*.csv'), ('All files', '*.*'))
@@ -219,6 +229,10 @@ def select_intro():
     intro = fd.askopenfilename(title='Open a file', initialdir=os.getcwd(), filetypes=filetypes)
     intro_text.set(intro)
 
+def select_eoc():
+    eoc_directory = fd.askdirectory()
+    eoc_text.set(eoc_directory)
+
 def select_syntheses():
     syntheses_directory = fd.askdirectory()
     syntheses_text.set(syntheses_directory)
@@ -243,7 +257,11 @@ def write_img():
 
 def write_name():
     if name_text.get() == "":
-        return False
+        f = open("files/nom.tex", 'r', encoding='utf-8')
+        last = f.read()
+        last = last.split("}")[0]
+        last = last.split("{")[1]
+        return last
 
     name = name_text.get()
     first = name.split(" ")[1] + "\\\\"
@@ -251,7 +269,7 @@ def write_name():
     with open("files/nom.tex", 'w', encoding="utf-8") as f:
         f.write(last + " " + first)
         f.write("promotion 2023-2026")
-    return True
+    return name.split(" ")[0]
 
 def write_tut_ac():
     if tut_ac_text.get() == "":
@@ -300,6 +318,15 @@ def write_intro():
     f.close()
     return True
 
+def write_eoc():
+    if eoc_text.get() == "":
+        return False
+
+    else :
+        with open("files/eoc.txt", "w", encoding="utf-8") as f:
+            f.write(eoc_text.get())
+    return True
+
 def write_syntheses():
     if syntheses_text.get() == "":
         return False
@@ -339,6 +366,20 @@ def write_annexes():
             else:
                 messagebox.showinfo("Erreur", "Le fichier " + annex_path + " n'est pas un fichier pdf, jpg ou png.")
     return True
+
+def setup_eoc():
+    eoc_dict = {}
+
+    with open("files/eoc.txt", "r", encoding="utf-8") as f:
+        eoc_path = f.read()
+    eoc_list = os.listdir(eoc_path)
+    for eoc in eoc_list:
+        s = open(eoc_path + "/" + eoc, "r", encoding="utf-8")
+        key = eoc.split(".")[0]
+        key = key.replace("_", " ")
+        eoc_dict[key] = s.read()
+        s.close()
+    return eoc_dict
 
 def setup_syntheses():
     synth = {}
@@ -413,6 +454,12 @@ intro_text = tk.StringVar()
 intro_textfield = tk.Entry(root, width=50, textvariable=intro_text)
 intro_button = ttk.Button(root, text="Introduction", command=select_intro)
 
+#end of course
+eoc_label = ttk.Label(root, text="End of course")
+eoc_text = tk.StringVar()
+eoc_textfield = tk.Entry(root, width=50, textvariable=eoc_text)
+eoc_button = ttk.Button(root, text="End of course", command=select_eoc)
+
 # synthèses
 syntheses_label = ttk.Label(root, text="Dossier des synthèses")
 syntheses_text = tk.StringVar()
@@ -460,14 +507,17 @@ ma_textfield.grid(row=9, column=2, pady=5)
 intro_label.grid(row=10, column=0, pady=5)
 intro_button.grid(row=10, column=1, pady=5)
 intro_textfield.grid(row=10, column=2, pady=5)
-syntheses_label.grid(row=11, column=0, pady=5)
-syntheses_button.grid(row=11, column=1, pady=5)
-syntheses_textfield.grid(row=11, column=2, pady=5)
-conclusion_label.grid(row=12, column=0, pady=5)
-conclusion_button.grid(row=12, column=1, pady=5)
-conclusion_textfield.grid(row=12, column=2, pady=5)
-annexes_label.grid(row=13, column=0, pady=5)
-annexes_button.grid(row=13, column=1, pady=5)
-annexes_textfield.grid(row=13, column=2, pady=5)
-close_button.grid(row=14, column=0, columnspan=2, pady=10)
+eoc_label.grid(row=11, column=0, pady=5)
+eoc_button.grid(row=11, column=1, pady=5)
+eoc_textfield.grid(row=11, column=2, pady=5)
+syntheses_label.grid(row=12, column=0, pady=5)
+syntheses_button.grid(row=12, column=1, pady=5)
+syntheses_textfield.grid(row=12, column=2, pady=5)
+conclusion_label.grid(row=13, column=0, pady=5)
+conclusion_button.grid(row=13, column=1, pady=5)
+conclusion_textfield.grid(row=13, column=2, pady=5)
+annexes_label.grid(row=14, column=0, pady=5)
+annexes_button.grid(row=14, column=1, pady=5)
+annexes_textfield.grid(row=14, column=2, pady=5)
+close_button.grid(row=15, column=0, columnspan=2, pady=10)
 root.mainloop()
