@@ -1,0 +1,12 @@
+school_file=/home/romain/Bureau/Universite/4A/ADMIN/Carnet_suivi/Docs/ecole.csv
+company_file=/home/romain/Bureau/Universite/4A/ADMIN/Carnet_suivi/Docs/entreprise.csv
+export_folder=/home/romain/Bureau/
+logo=/home/romain/Bureau/Universite/4A/ADMIN/Carnet_suivi/Docs/eiffage.png
+student_name=Brouard Romain
+school_tutor_name=Rault Tifenn
+company_tutor_name=Berruer Stéphane
+introduction=/home/romain/Bureau/Universite/4A/ADMIN/Carnet_suivi/Docs/introduction.txt
+eoc=/home/romain/Bureau/Universite/4A/ADMIN/Carnet_suivi/Docs/end_of_course
+synthesis=/home/romain/Bureau/Universite/4A/ADMIN/Carnet_suivi/Docs/syntheses
+conclusion=/home/romain/Bureau/Universite/4A/ADMIN/Carnet_suivi/Docs/conclusion.txt
+annex=/home/romain/Bureau/Universite/4A/ADMIN/Carnet_suivi/Docs/annexes

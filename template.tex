@@ -1,0 +1,68 @@
+\documentclass[12pt, openany]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[french]{babel}
+\usepackage[pdftex]{graphicx}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{pdfpages}
+
+\newcommand{\Csharp}{{\settoheight{\dimen0}{C}C\kern-.05em \resizebox{!}{\dimen0}{\raisebox{\depth}{\#}}}}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\newcommand{\hsp}{\hspace{20pt}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+%\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+\begin{document}
+    \begin{titlepage}
+        \begin{center}
+            \textsc{\LARGE École Polytechnique de l'Université de Tours}
+            \\[2cm]
+
+            \includegraphics{img/polytech}
+            \\[2cm]
+            \HRule \\[0.4cm]
+            { \huge \bfseries Carnet de suivi\\[0.4cm] }
+
+            \HRule \\[2cm]
+
+            {\large Formation Informatique et Systèmes Intelligents Embarqués par apprentissage\\[0.4cm]}
+
+            \begin{minipage}{0.4\textwidth}
+                \begin{flushleft} \large
+                {{student_name}}
+                    \end{flushleft}
+            \end{minipage}
+            \begin{minipage}{0.4\textwidth}
+                \begin{flushright} \large
+                    \emph{Tuteur académique:}\\
+                {{school_tutor}}
+                    \emph {Tuteur industriel:}\\
+                {{company_tutor}}
+                    \end{flushright}
+            \end{minipage}
+
+            \vfill
+
+            {\large 1\ier{} Septembre 2024 — 31 Août 2025}
+            \includegraphics[width=\textwidth]{{{logo}}}
+            \end{center}\end{titlepage}\setcounter{tocdepth}{1}\tableofcontents
+\chapter{Introduction}
+    {{introduction}}
+\chapter{Suivi académique}
+    Auto-évaluation:\\
+    N : Notion\\
+    A : Application\\
+    M : Maîtrise\\
+    E : Expertise\\
+    N/A : Non Evalué\\
+{{school_data}}
+    \chapter {Suivi en entreprise}
+    {{company_data}}
+    \chapter{Conclusion}
+    {{conclusion}}
+    \chapter{Annexes}
+    {{annexes}}
+\end{document}
