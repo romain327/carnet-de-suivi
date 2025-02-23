@@ -77,7 +77,7 @@ def format_string(string):
 def read_eoc(eoc_dir):
     eoc = {}
     for file in os.listdir(eoc_dir):
-        with open(eoc_dir + "/" + file, "r") as f:
+        with open(eoc_dir + "/" + file, "r", encoding='utf-8') as f:
             eoc[file.replace("_", " ").capitalize().replace(".txt", "")] = f.read()
     return eoc
 

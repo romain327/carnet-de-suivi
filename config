@@ -1,6 +1,6 @@
-school_file=/home/romain/Bureau/Universite/4A/ADMIN/Carnet_suivi/Docs/ecole.csv
+school_file=/home/romain/Bureau/Universite/4A/ADMIN/Carnet_suivi/Docs/ecole_gpt.csv
 company_file=/home/romain/Bureau/Universite/4A/ADMIN/Carnet_suivi/Docs/entreprise.csv
-export_folder=/home/romain/Bureau/
+export_folder=/home/romain/Bureau/Universite/4A/ADMIN/
 logo=/home/romain/Bureau/Universite/4A/ADMIN/Carnet_suivi/Docs/eiffage.png
 student_name=Brouard Romain
 school_tutor_name=Rault Tifenn
