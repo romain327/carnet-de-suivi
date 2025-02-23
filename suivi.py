@@ -47,12 +47,12 @@ def read_config(params_names, config_file):
                     _config[param] = line.split("=")[1].replace("\n", "")
     return _config
 
-def format_csv(csv):
+def format_csv(csv, filename):
     with open(csv, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
     l = ""
-    f = open("format.csv", 'w', encoding="utf-8")
+    f = open(filename, 'w', encoding="utf-8")
     for line in lines:
         line = format_string(line)
         if l != "" and line[0].isdigit():
@@ -61,7 +61,7 @@ def format_csv(csv):
                 l = line
         else :
             l += line
-    return "format.csv"
+    return filename
 
 def format_string(string):
     string = string.replace(", ", "|")
@@ -72,6 +72,7 @@ def format_string(string):
     string = string.replace("\r\n", "")
     string = string.replace('"', "")
     string = string.replace("...", "\ldots")
+    string = string.replace("%", "$\\%$")
     return string
 
 def read_eoc(eoc_dir):
@@ -120,7 +121,7 @@ def on_generate_button_click():
     log_text_box.insert(tk.END, get_time() + "done.\n")
 
     log_text_box.insert(tk.END, get_time() + "Reading school file...\n")
-    formatted_file = format_csv(params[0])
+    formatted_file = format_csv(params[0], 'format.csv')
     school_data = {}
     with open(formatted_file, "r") as file:
         for line in file:
@@ -131,7 +132,7 @@ def on_generate_button_click():
     log_text_box.insert(tk.END, get_time() + "done.\n")
 
     log_text_box.insert(tk.END, get_time() + "Reading company file...\n")
-    formatted_file = format_csv(params[1])
+    formatted_file = format_csv(params[1], 'format2.csv')
     company_data = {}
     with open(formatted_file, "r") as file:
         for line in file:
@@ -162,7 +163,8 @@ def on_generate_button_click():
                     tr += 1
             if tr > 1:
                 cat[1] = cat[1].replace("- ", " \\newline - ")
-            cat[3] = cat[3].replace("\n", "")
+            print(cat)
+            cat[-1] = cat[-1].replace("\n", "")
             school_text += (cat[0] + " & " + cat[1] + " & " + cat[2] + " & " + cat[3] + "\\\\ \n")
             school_text += "\hline\n"
         school_text += "\end{tabular*}}\n"
@@ -189,7 +191,7 @@ def on_generate_button_click():
                     tr += 1
             if tr > 1:
                 cat[1] = cat[1].replace("- ", " \\newline - ")
-            cat[3] = cat[3].replace("\n", "")
+            cat[-1] = cat[-1].replace("\n", "")
             company_text += (cat[0] + " & " + cat[1] + " & " + cat[2] + " & " + cat[3] + "\\\\ \n")
             company_text += "\hline\n"
         company_text += "\end{tabular*}}\n"
@@ -243,6 +245,7 @@ def on_generate_button_click():
 
     log_text_box.insert(tk.END, get_time() + "Cleaning up...\n")
     os.remove("format.csv")
+    os.remove("format2.csv")
     os.remove(filename)
     os.remove(filename.replace(".tex", ".aux"))
     os.remove(filename.replace(".tex", ".log"))
@@ -384,19 +387,19 @@ test = False
 if len(sys.argv) > 1:
     if sys.argv[1] == "-t":
         test=True
-        config_file = "test/test_config"
-        input_text.set("test/school.csv")
-        entreprise_text.set("test/company.csv")
-        output_text.set("test/output")
-        img_text.set("test/logo.png")
+        config_file = "tests/config_test"
+        input_text.set("tests/school.csv")
+        entreprise_text.set("tests/company.csv")
+        output_text.set("tests/output")
+        img_text.set("tests/logo.png")
         name_text.set("Kujo Jotaro")
         tut_ac_text.set("Brando DIO")
         ma_text.set("Polnareff Jean-Pierre")
-        intro_text.set("test/intro.txt")
-        eoc_text.set("test/eoc")
-        syntheses_text.set("test/syntheses")
-        conclusion_text.set("test/conclusion.txt")
-        annexes_text.set("test/annexes")
+        intro_text.set("tests/intro.txt")
+        eoc_text.set("tests/eoc")
+        syntheses_text.set("tests/syntheses")
+        conclusion_text.set("tests/conclusion.txt")
+        annexes_text.set("tests/annexes")
         log_text_box.insert(tk.END, get_time() + "Test mode enabled.\n")
 
 root.mainloop()

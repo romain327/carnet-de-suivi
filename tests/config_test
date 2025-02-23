@@ -1,0 +1,12 @@
+school_file=tests/school.csv
+company_file=tests/company.csv
+export_folder=tests/output
+logo=tests/logo.png
+student_name=Kujo Jotaro
+school_tutor_name=Brando DIO
+company_tutor_name=Polnareff Jean-Pierre
+introduction=tests/intro.txt
+eoc=tests/eoc
+synthesis=tests/syntheses
+conclusion=tests/conclusion.txt
+annex=tests/annexes
