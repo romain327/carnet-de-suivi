@@ -1,5 +1,5 @@
 # Carnet de suivi
-![GitHub](https://img.shields.io/badge/License-MIT-blue) ![GitHub](https://img.shields.io/badge/Statut-Opérationnel-green) ![GitHub](https://img.shields.io/badge/Tests_Linux-Opérationnel-green) ![GitHub](https://img.shields.io/badge/Tests_Windows-Inconnu-red)
+![GitHub](https://img.shields.io/badge/License-MIT-blue) ![GitHub](https://img.shields.io/badge/Statut-Opérationnel-dark_green) ![GitHub](https://img.shields.io/badge/Tests_Linux-Opérationnel-green) ![GitHub](https://img.shields.io/badge/Tests_Windows-Inconnu-red)
 
 
 ## Description
