@@ -6,6 +6,7 @@
 Ce projet est un générateur de carnet de suivi pour les étudiants en alternance de Polytech Tours.
 
 Les tests Linux ont été réalisés sous Debian avec une installation vierge.
+Les tests Windows n'ont pas encore été faits.
 ## Installation
 ### Sous Windows
 - Installer git : https://git-scm.com/download/win
