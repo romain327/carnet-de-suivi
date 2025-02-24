@@ -387,6 +387,7 @@ test = False
 if len(sys.argv) > 1:
     if sys.argv[1] == "-t":
         test=True
+        os.makedirs("tests/output", exist_ok=True)
         config_file = "tests/config_test"
         input_text.set("tests/school.csv")
         entreprise_text.set("tests/company.csv")
