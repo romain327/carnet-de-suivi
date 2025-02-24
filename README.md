@@ -5,8 +5,6 @@
 ## Description
 Ce projet est un générateur de carnet de suivi pour les étudiants en alternance de Polytech Tours.
 
-Les tests Linux ont été réalisés sous Debian avec une installation vierge.
-Les tests Windows n'ont pas encore été faits.
 ## Installation
 ### Sous Windows
 - Installer git : https://git-scm.com/download/win
@@ -48,6 +46,9 @@ Vous devez avoir les fichiers nécessaires au carnet de suivi :
 
 Après avoir rempli les champs, cliquez sur le bouton "générer". Cela vous génèrera votre carnet mais également un fichier de configuration contenant les chemins vers vos fichiers. Si vous ne changez pas vos fichiers de place, vous n'avez donc pas besoin de remplir les champs à chaque fois.
 
+## Tests
+- Les tests Linux ont été réalisés sous Debian avec une installation vierge et python 3.11.
+- Les tests Windows n'ont pas encore été faits.
 ## Développement
 Si vous souhaitez cloner ce dépot pour faire des tests, des modifications ou des améliorations, des fichiers de test sont disponibles dans le répertoire test.
 Vous pouvez activer le mode test en lançant le programme avec le flag -t : `python3 suivi.py -t`
