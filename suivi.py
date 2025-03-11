@@ -97,7 +97,7 @@ def on_generate_button_click():
 
     log_text_box.insert(tk.END, get_time() + "Start generation...\n")
     params_names = ["school_file", "company_file", "export_folder", "logo", "student_name", "school_tutor_name", "company_tutor_name", "introduction", "eoc", "synthesis", "conclusion", "annex"]
-    params = [input_text.get(), entreprise_text.get(), output_text.get(), img_text.get(), name_text.get(), tut_ac_text.get(), ma_text.get(), intro_text.get(), eoc_text.get(), syntheses_text.get(), conclusion_text.get(), annexes_text.get()]
+    params = [input_text.get(), entreprise_text.get(), output_text.get(), img_text.get(), name_text.get(), civilite_ac.get() + tut_ac_text.get(), civilite_ma.get() + ma_text.get(), intro_text.get(), eoc_text.get(), syntheses_text.get(), conclusion_text.get(), annexes_text.get()]
 
     log_text_box.insert(tk.END, get_time() + "Reading configuration file...\n")
     config = read_config(params_names, config_file)
@@ -221,8 +221,8 @@ def on_generate_button_click():
     template = template.replace("{{school_data}}", school_text)
     template = template.replace("{{company_data}}", company_text)
     template = template.replace("{{student_name}}", params[4])
-    template = template.replace("{{school_tutor}}", civilite_ac.get() + params[5])
-    template = template.replace("{{company_tutor}}", civilite_ma.get() + params[6])
+    template = template.replace("{{school_tutor}}", params[5])
+    template = template.replace("{{company_tutor}}", params[6])
     template = template.replace("{{logo}}", params[3].split('.')[0])
     template = template.replace("{{introduction}}", intro.replace('\n', '\\\\'))
     template = template.replace("{{conclusion}}", conclusion.replace('\n', '\\\\'))
@@ -261,83 +261,81 @@ title_label = ttk.Label(root, text="Générateur de carnet de suivi")
 # csv entrée
 input_label = ttk.Label(root, text="Fichier CSV académique")
 input_text = tk.StringVar()
-input_textfield = tk.Entry(root, width=50, textvariable=input_text)
+input_textfield = tk.Entry(root, width=80, textvariable=input_text)
 input_button = ttk.Button(root, text="Import du fichier CSV", command=on_school_button_click)
 
 # csv entrprise
 entreprise_label = ttk.Label(root, text="Fichier CSV entreprise")
 entreprise_text = tk.StringVar()
-entreprise_textfield = tk.Entry(root, width=50, textvariable=entreprise_text)
+entreprise_textfield = tk.Entry(root, width=80, textvariable=entreprise_text)
 entreprise_button = ttk.Button(root, text="Import du fichier CSV", command=on_company_button_click)
 
 # dossier sortie
 output_label = ttk.Label(root, text="Dossier de sortie")
 output_text = tk.StringVar()
-output_textfield = tk.Entry(root, width=50, textvariable=output_text)
+output_textfield = tk.Entry(root, width=80, textvariable=output_text)
 output_button = ttk.Button(root, text="Export du fichier PDF", command=on_export_button_click)
 
 # image
 img_label = ttk.Label(root, text="Logo entreprise")
 img_text = tk.StringVar()
-img_textfield = tk.Entry(root, width=50, textvariable=img_text)
+img_textfield = tk.Entry(root, width=80, textvariable=img_text)
 img_button = ttk.Button(root, text="Import du logo", command=on_logo_button_click)
 
 # nom - prénom élève
 name_label = ttk.Label(root, text="Nom et prénom de l'étudiant")
 name_text = tk.StringVar()
-name_textfield = tk.Entry(root, width=50, textvariable=name_text)
+name_textfield = tk.Entry(root, width=80, textvariable=name_text)
 
 # tuteur académique
 tut_ac_label = ttk.Label(root, text="Nom et prénom du tuteur académique")
 civilite_ac = tk.StringVar(root)
-civilite_ac.set("Mme.")
-civilite_ac_menu = tk.OptionMenu(root, civilite_ac, "Mme.", "Mlle.", "M.")
+civilite_ac.set("")
+civilite_ac_menu = tk.OptionMenu(root, civilite_ac, "", "Mme. ", "Mlle. ", "M. ")
 tut_ac_text = tk.StringVar()
-tut_ac_textfield = tk.Entry(root, width=50, textvariable=tut_ac_text)
+tut_ac_textfield = tk.Entry(root, width=80, textvariable=tut_ac_text)
 
 # maître d'apprentissage
 ma_label = ttk.Label(root, text="Nom et prénom du maître d'apprentissage")
 civilite_ma = tk.StringVar(root)
-civilite_ma.set("Mme.")
-civilite_ma_menu = tk.OptionMenu(root, civilite_ma, "Mme.", "Mlle.", "M.")
+civilite_ma.set("")
+civilite_ma_menu = tk.OptionMenu(root, civilite_ma, "", "Mme. ", "Mlle. ", "M. ")
 ma_text = tk.StringVar()
-ma_textfield = tk.Entry(root, width=50, textvariable=ma_text)
+ma_textfield = tk.Entry(root, width=80, textvariable=ma_text)
 
 # intro
 intro_label = ttk.Label(root, text="Introduction")
 intro_text = tk.StringVar()
-intro_textfield = tk.Entry(root, width=50, textvariable=intro_text)
+intro_textfield = tk.Entry(root, width=80, textvariable=intro_text)
 intro_button = ttk.Button(root, text="Introduction", command=on_intro_button_click)
 
 #end of course
 eoc_label = ttk.Label(root, text="End of course")
 eoc_text = tk.StringVar()
-eoc_textfield = tk.Entry(root, width=50, textvariable=eoc_text)
+eoc_textfield = tk.Entry(root, width=80, textvariable=eoc_text)
 eoc_button = ttk.Button(root, text="End of course", command=on_eoc_button_click)
 
 # synthèses
 syntheses_label = ttk.Label(root, text="Dossier des synthèses")
 syntheses_text = tk.StringVar()
-syntheses_textfield = tk.Entry(root, width=50, textvariable=syntheses_text)
+syntheses_textfield = tk.Entry(root, width=80, textvariable=syntheses_text)
 syntheses_button = ttk.Button(root, text="Synthèses", command=on_syntheses_button_click)
 
 # conclusion
 conclusion_label = ttk.Label(root, text="Conclusion")
 conclusion_text = tk.StringVar()
-conclusion_textfield = tk.Entry(root, width=50, textvariable=conclusion_text)
+conclusion_textfield = tk.Entry(root, width=80, textvariable=conclusion_text)
 conclusion_button = ttk.Button(root, text="Conclusion", command=on_conclusion_button_click)
 
 # annexes
 annexes_label = ttk.Label(root, text="Dossier des annexes")
 annexes_text = tk.StringVar()
-annexes_textfield = tk.Entry(root, width=50, textvariable=annexes_text)
+annexes_textfield = tk.Entry(root, width=80, textvariable=annexes_text)
 annexes_button = ttk.Button(root, text="Annexes", command=on_annexes_button_click)
 
 start_button = ttk.Button(root, text="Générer", command=on_generate_button_click)
 
 close_button = ttk.Button(root, text="Fermer", command=root.destroy)
-
-progress_bar = ttk.Progressbar(root, orient="horizontal", length=500, mode="determinate")
 
 log_text_box = tk.Text(root, height=10, width=100)
 
@@ -380,8 +378,7 @@ annexes_label.grid(row=12, column=0, pady=5)
 annexes_button.grid(row=12, column=1, pady=5)
 annexes_textfield.grid(row=12, column=2, pady=5)
 start_button.grid(row=13, column=0, columnspan=2, pady=10)
-progress_bar.grid(row=14, column=0, columnspan=2, pady=10)
-log_text_box.grid(row=15, column=0, columnspan=3, pady=10)
+log_text_box.grid(row=14, column=0, columnspan=3, pady=10)
 
 test = False
 if len(sys.argv) > 1:
